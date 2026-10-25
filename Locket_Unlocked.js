@@ -1,14 +1,26 @@
 // ============================================================
-// Locket Remote Config Rewrite
+// Locket Remote Config Rewrite (HCMUTE Edition - tkhoi8450)
 // Endpoint: firebaseremoteconfig.googleapis.com
-// Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
+// Dùng cho: Shadowrocket / Loon / Quantumult X / Surge
 // ============================================================
 
-var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
-var obj = JSON.parse($response.body);
+var ua = "";
+try {
+    if ($request && $request.headers) {
+        ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
+    }
+} catch (e) {}
 
-if (ua.includes("Locket")) {
-    obj.Attention = "Chúc mừng bạn! Vui lòng không bán hoặc chia sẻ cho người khác!";
+var obj = {};
+try {
+    obj = typeof $response.body === "string" ? JSON.parse($response.body) : ($response.body || {});
+} catch (e) {
+    obj = {};
+}
+
+// Luôn thực thi mở khóa 60s, Mic & Chú thích vì endpoint locket-4252a dành riêng cho Locket
+if (true) {
+    obj.Attention = "💛 Locket Gold Ultimate - HCMUTE Edition";
     obj.entries = obj.entries || {};
 
     // ============================================================
@@ -393,7 +405,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_so1_vo_van_ngan",
                         source: "remote",
                         caption: {
@@ -404,7 +417,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_toa_trung_tam",
                         source: "remote",
                         caption: {
@@ -415,7 +429,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_ket_xe_thu_duc",
                         source: "remote",
                         caption: {
@@ -426,7 +441,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_cuu_do_an",
                         source: "remote",
                         caption: {
@@ -437,7 +453,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_chieu_xuong_xuong",
                         source: "remote",
                         caption: {
@@ -448,7 +465,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_code_xuyen_dem",
                         source: "remote",
                         caption: {
@@ -459,7 +477,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_thu_vien_khu_a",
                         source: "remote",
                         caption: {
@@ -470,7 +489,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_cafe_vvn",
                         source: "remote",
                         caption: {
@@ -481,7 +501,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_metro_cong_truong",
                         source: "remote",
                         caption: {
@@ -492,7 +513,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_trai_spkt",
                         source: "remote",
                         caption: {
@@ -503,7 +525,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_qua_mon_tai_nang",
                         source: "remote",
                         caption: {
@@ -514,7 +537,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_an_trua_lvc",
                         source: "remote",
                         caption: {
@@ -525,7 +549,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_mua_ngap_vvn",
                         source: "remote",
                         caption: {
@@ -536,7 +561,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_ky_su_tuong_lai",
                         source: "remote",
                         caption: {
@@ -547,7 +573,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_hoc_bong_vay_goi",
                         source: "remote",
                         caption: {
@@ -558,7 +585,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_ngu_gat_ca1",
                         source: "remote",
                         caption: {
@@ -569,7 +597,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_balo_do_an",
                         source: "remote",
                         caption: {
@@ -580,7 +609,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_khoa_ky_thuat",
                         source: "remote",
                         caption: {
@@ -591,7 +621,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ute_tu_hao_hcmute",
                         source: "remote",
                         caption: {
@@ -2290,7 +2321,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_doi_roi",
                         source: "remote",
                         caption: {
@@ -2301,7 +2333,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_dang_ban_tuong_tu",
                         source: "remote",
                         caption: {
@@ -2312,7 +2345,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_rep_tin_nhan",
                         source: "remote",
                         caption: {
@@ -2323,7 +2357,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_mo_hon_tam_hien",
                         source: "remote",
                         caption: {
@@ -2334,7 +2369,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_muon_duoc_om",
                         source: "remote",
                         caption: {
@@ -2345,7 +2381,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_hoi_bi_nho",
                         source: "remote",
                         caption: {
@@ -2356,7 +2393,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_dang_ghen",
                         source: "remote",
                         caption: {
@@ -2367,7 +2405,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:love_ngu_ngon_mo_em",
                         source: "remote",
                         caption: {
@@ -2395,7 +2434,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_yeuu_anhh",
                         source: "remote",
                         caption: {
@@ -2406,7 +2446,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_hoi_chieu_troi_mua",
                         source: "remote",
                         caption: {
@@ -2417,7 +2458,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_con_vien_la_lan",
                         source: "remote",
                         caption: {
@@ -2428,7 +2470,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_aiiii_hoiiii",
                         source: "remote",
                         caption: {
@@ -2439,7 +2482,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_tai_ong_de_ngoai_dau",
                         source: "remote",
                         caption: {
@@ -2450,7 +2494,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_chan_bo_may_di",
                         source: "remote",
                         caption: {
@@ -2461,7 +2506,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_oach_xa_lach",
                         source: "remote",
                         caption: {
@@ -2472,7 +2518,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_e_he",
                         source: "remote",
                         caption: {
@@ -2483,7 +2530,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_ua_alo",
                         source: "remote",
                         caption: {
@@ -2494,7 +2542,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_may_chu_la_du_du",
                         source: "remote",
                         caption: {
@@ -2505,7 +2554,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_lanh_thay_me",
                         source: "remote",
                         caption: {
@@ -2516,7 +2566,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_day_la_cai_viec",
                         source: "remote",
                         caption: {
@@ -2527,7 +2578,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_dep_trai_an_phim_2",
                         source: "remote",
                         caption: {
@@ -2538,7 +2590,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_nho_anh_ch",
                         source: "remote",
                         caption: {
@@ -2549,7 +2602,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_bien_oi_huuuuuu",
                         source: "remote",
                         caption: {
@@ -2560,7 +2614,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_yeu_me",
                         source: "remote",
                         caption: {
@@ -2571,7 +2626,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_nho_ngy",
                         source: "remote",
                         caption: {
@@ -2582,7 +2638,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_oan_ta_la_van",
                         source: "remote",
                         caption: {
@@ -2593,7 +2650,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_kha_nang_cao",
                         source: "remote",
                         caption: {
@@ -2604,7 +2662,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_o_qua_kieu",
                         source: "remote",
                         caption: {
@@ -2615,7 +2674,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_lanh_nho_ai",
                         source: "remote",
                         caption: {
@@ -2626,7 +2686,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_dung_nhang_nhit",
                         source: "remote",
                         caption: {
@@ -2637,7 +2698,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_hom_nay_toi_buon",
                         source: "remote",
                         caption: {
@@ -2648,7 +2710,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_gap_nhau_cai_nhi",
                         source: "remote",
                         caption: {
@@ -2659,7 +2722,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_ank_iu_eim",
                         source: "remote",
                         caption: {
@@ -2670,7 +2734,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_mong_ton_hoa_sen",
                         source: "remote",
                         caption: {
@@ -2681,7 +2746,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_dam_nhau_khong",
                         source: "remote",
                         caption: {
@@ -2692,7 +2758,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_sieu_cap_ba_khi",
                         source: "remote",
                         caption: {
@@ -2703,7 +2770,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_du_an_ma",
                         source: "remote",
                         caption: {
@@ -2714,7 +2782,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_doc_so_tai_khoan",
                         source: "remote",
                         caption: {
@@ -2725,7 +2794,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_ai_so_thi_di_ve",
                         source: "remote",
                         caption: {
@@ -2736,7 +2806,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_con_cai_nit",
                         source: "remote",
                         caption: {
@@ -2747,7 +2818,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_canh_bao_co_hat",
                         source: "remote",
                         caption: {
@@ -2758,7 +2830,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_than_chua_ma_don",
                         source: "remote",
                         caption: {
@@ -2769,7 +2842,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_ai_muon",
                         source: "remote",
                         caption: {
@@ -2780,7 +2854,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_hay_ra_de_qua_a",
                         source: "remote",
                         caption: {
@@ -2791,7 +2866,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_giam_suc_manh",
                         source: "remote",
                         caption: {
@@ -2802,7 +2878,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_mac_co_qua_hai_oi",
                         source: "remote",
                         caption: {
@@ -2813,7 +2890,8 @@ if (ua.includes("Locket")) {
                             text_color: "#000000E6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_minh_la_lop",
                         source: "remote",
                         caption: {
@@ -2824,7 +2902,8 @@ if (ua.includes("Locket")) {
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
-                    },\n                    {
+                    },
+                    {
                         overlay_id: "caption:ws_dep_trai_co_gi_sai",
                         source: "remote",
                         caption: {
@@ -2840,6 +2919,23 @@ if (ua.includes("Locket")) {
             }
         ])
     });
+
+    // Ép Firebase SDK trên iOS nhận diện bản cập nhật cấu hình mới ngay lập tức
+    obj.state = "UPDATE";
 }
 
-$done({ body: JSON.stringify(obj) });
+var fbHeaders = {};
+try {
+    fbHeaders = Object.assign({}, ($response && $response.headers) ? $response.headers : {});
+    fbHeaders["Cache-Control"] = "public, max-age=315360000, immutable";
+    fbHeaders["Expires"] = "Thu, 31 Dec 2099 23:59:59 GMT";
+    delete fbHeaders["Pragma"];
+    delete fbHeaders["pragma"];
+    delete fbHeaders["ETag"];
+    delete fbHeaders["etag"];
+} catch (e) {}
+
+$done({
+    headers: fbHeaders,
+    body: JSON.stringify(obj)
+});

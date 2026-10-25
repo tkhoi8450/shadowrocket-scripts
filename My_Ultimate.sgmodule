@@ -1,14 +1,18 @@
-#!name=My Ultimate Shadowrocket (Private GitHub Edition)
-#!desc=Bộ kịch bản trọn gói 22 script VIP cá nhân hóa từ kho GitHub tkhoi8450/shadowrocket-scripts: Locket Gold/Unlocked (Quay 60s + Nút Mic + 24 Hot Trend 2026) + YouTube PiP/Phát nền/Chặn QC + Spotify + SoundCloud + 11 App VIP (Lightroom, VSCO, PicsArt, CamScanner, Wink, AlightMotion, Meitu, Snow, BeautyPlus, Kinemaster, Truecaller, iTunes) + Sub-Store.
-#!author=tkhoi8450
+#!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
+#!desc=Bản nâng cấp toàn diện cho sinh viên HCMUTE: Locket Gold 60s + Nút Mic + Chú thích HCMUTE/GenZ/Wordsmith + YouTube Maasea Mới Nhất (Sạch QC, PiP, Phát nền) + Spotify + SoundCloud + 11 App VIP
+#!author=tkhoi8450 (HCMUTE)
 #!homepage=https://github.com/tkhoi8450/shadowrocket-scripts
 #!howtouse=Shadowrocket
 #!category=Ultimate All-In-One
 
 [Rule]
+# 1. Chặn toàn bộ QUIC / HTTP3 qua UDP Port 443 ép iOS dùng TCP HTTPS để Shadowrocket giải mã MITM
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,api.revenuecat.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,youtube.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-SUFFIX,revenuecat.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-SUFFIX,rc-backup.com),(PROTOCOL,UDP)),REJECT
 
@@ -20,25 +24,29 @@ AND,((DOMAIN-SUFFIX,rc-backup.com),(PROTOCOL,UDP)),REJECT
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del x-revenuecat-etag
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del X-RevenueCat-ETag
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del if-none-match
+http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del If-None-Match
 
-# 2. Xóa ETag và If-None-Match của Locket Firebase Remote Config
+# 2. Xóa ETag, If-None-Match và If-Modified-Since của Locket Firebase Remote Config (Chống phản hồi 304 Not Modified để luôn nạp cấu hình mới)
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-none-match
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-None-Match
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del etag
+http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del ETag
+http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-modified-since
+http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-Modified-Since
 
 # 3. Xóa If-None-Match cho Spotify
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Script]
 # ==========================================
-# 1. Locket Gold + Firebase Remote Config (Kho GitHub tkhoi8450)
+# 1. Locket Gold + Quay 60s + Mic + Chú Thích HCMUTE (Kho GitHub tkhoi8450)
 # ==========================================
 deleteHeader = type=http-request,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js,timeout=60
-revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js,requires-body=true,max-size=-1,timeout=60
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js,requires-body=true,max-size=-1,timeout=60
+revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js,requires-body=1,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js,requires-body=1,max-size=-1,timeout=60
 
 # ==========================================
-# 2. YouTube & YouTube Music Enhance (PiP, Phát nền, Chặn QC, Phụ đề Tiếng Việt)
+# 2. YouTube & YouTube Music Enhance (Lõi Maasea mới nhất - Chặn sạch QC, PiP, Phát nền, Phụ đề Tiếng Việt)
 # ==========================================
 youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js,argument="{\"lyricLang\":\"vi\",\"captionLang\":\"vi\",\"blockUpload\":true,\"blockImmersive\":true,\"blockShorts\":false,\"debug\":false}"
 youtube.request.init = type=http-request,pattern=^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js,argument="{\"lyricLang\":\"vi\",\"captionLang\":\"vi\"}"
@@ -52,7 +60,7 @@ spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|
 spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/spotify-proto.js,script-update-interval=0
 
 # ==========================================
-# 4. Mở khóa 11 App Chỉnh Ảnh & Tiện Ích VIP
+# 4. Mở khóa 11 App Chỉnh Ảnh & Tiện Ích VIP (Đã gộp vào Locket_Gold.js & loại bỏ dòng VSCO gây nghẽn)
 # ==========================================
 AlightMotion = type=http-response,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/AlightMotion.js,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,max-size=131072,requires-body=true,timeout=10
 PicsArt = type=http-request,pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/PicsArt.js,requires-body=true,timeout=60
@@ -75,4 +83,4 @@ Sub-Store Simple=type=http-request,pattern=^https?:\/\/sub\.store,script-path=ht
 Sub-Store Sync=type=cron,cronexp=0 0 * * *,wake-system=1,timeout=120,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js
 
 [MITM]
-hostname = %APPEND%, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, *.googlevideo.com, youtubei.googleapis.com, sub.store, api-mobile.soundcloud.com, spclient.wg.spotify.com, *spclient.spotify.com, api.picsart.com, us-central1-alight-creative.cloudfunctions.net, api-sub.meitu.com, photos.adobe.io, ap*.intsig.net, api-account.kinemasters.com, api.mr.pixocial.com, newbeee-api.beautyplus.com, user-snow-api.snow.me, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, premium*.truecaller.com, buy.itunes.apple.com
+hostname = %APPEND% api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, *.googlevideo.com, youtubei.googleapis.com, sub.store, api-mobile.soundcloud.com, spclient.wg.spotify.com, *spclient.spotify.com, api.picsart.com, us-central1-alight-creative.cloudfunctions.net, api-sub.meitu.com, photos.adobe.io, ap*.intsig.net, api-account.kinemasters.com, api.mr.pixocial.com, newbeee-api.beautyplus.com, user-snow-api.snow.me, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, premium*.truecaller.com, buy.itunes.apple.com
