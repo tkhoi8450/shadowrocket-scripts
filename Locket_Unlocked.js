@@ -386,84 +386,207 @@ if (true) {
         ]),
         overlay_items: JSON.stringify([
     {
-        "section": "🎓 Sinh Viên HCMUTE ⚙️",
+        "section": "🧪 Thử Nghiệm Nền Ảnh (Test Image BG)",
         "items": [
             {
-                "overlay_id": "caption:ute_dan_ky_thuat",
+                "overlay_id": "test:bg_url_only",
+                "source": "remote",
+                "caption": {
+                    "background": {
+                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                    },
+                    "icon": {
+                        "data": "🖼️",
+                        "type": "emoji"
+                    },
+                    "max_lines": 1,
+                    "text": "Test 1: BG url",
+                    "text_color": "#FFFFFF",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "test:bg_image_url_only",
+                "source": "remote",
+                "caption": {
+                    "background": {
+                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                    },
+                    "icon": {
+                        "data": "🖼️",
+                        "type": "emoji"
+                    },
+                    "max_lines": 1,
+                    "text": "Test 2: BG image_url",
+                    "text_color": "#FFFFFF",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "test:bg_type_image",
+                "source": "remote",
+                "caption": {
+                    "background": {
+                        "type": "image",
+                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                    },
+                    "icon": {
+                        "data": "🖼️",
+                        "type": "emoji"
+                    },
+                    "max_lines": 1,
+                    "text": "Test 3: BG type image",
+                    "text_color": "#FFFFFF",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "test:bg_transparent_url",
+                "source": "remote",
+                "caption": {
+                    "background": {
+                        "colors": [
+                            "#00000000",
+                            "#00000000"
+                        ],
+                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                    },
+                    "icon": {
+                        "data": "🖼️",
+                        "type": "emoji"
+                    },
+                    "max_lines": 1,
+                    "text": "Test 4: Transparent + url",
+                    "text_color": "#FFFFFF",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "test:icon_image_url",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#0052D4",
                             "#4364F7"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                        ]
                     },
                     "icon": {
-                        "data": "🎓",
-                        "type": "emoji",
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                        "type": "image",
+                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
                     },
                     "max_lines": 1,
-                    "text": "Dân Kỹ Thuật HCMUTE",
-                    "text_color": "#FFFFFFE6",
+                    "text": "Test 5: Icon type image",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_so1_vo_van_ngan",
+                "overlay_id": "test:icon_type_url",
+                "source": "remote",
+                "caption": {
+                    "background": {
+                        "colors": [
+                            "#0052D4",
+                            "#4364F7"
+                        ]
+                    },
+                    "icon": {
+                        "type": "url",
+                        "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                    },
+                    "max_lines": 1,
+                    "text": "Test 6: Icon data URL",
+                    "text_color": "#FFFFFF",
+                    "type": "static_content"
+                }
+            }
+        ]
+    },
+    {
+        "section": "🎓 Sinh Viên HCMUTE ⚙️",
+        "items": [
+            {
+                "overlay_id": "caption:ute_dan_ky_thuat_hcmute",
+                "source": "remote",
+                "caption": {
+                    "background": {
+                        "colors": [
+                            "#0052D4",
+                            "#4364F7"
+                        ]
+                    },
+                    "icon": {
+                        "data": "⚙️",
+                        "type": "emoji"
+                    },
+                    "max_lines": 1,
+                    "text": "Dân Kỹ Thuật HCMUTE",
+                    "localized_text": {
+                        "en": "Dân Kỹ Thuật HCMUTE",
+                        "vn": "Dân Kỹ Thuật HCMUTE"
+                    },
+                    "text_color": "#FFFFFF",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "caption:ute_so_1_vo_van_ngan",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#1A2980",
                             "#26D0CE"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                        ]
                     },
                     "icon": {
-                        "data": "🎓",
-                        "type": "emoji",
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                        "data": "🏫",
+                        "type": "emoji"
                     },
                     "max_lines": 1,
                     "text": "Số 1 Võ Văn Ngân",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Số 1 Võ Văn Ngân",
+                        "vn": "Số 1 Võ Văn Ngân"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_toa_trung_tam",
+                "overlay_id": "caption:ute_check_in_toa_trung_tam_ute",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#141E30",
                             "#243B55"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                        ]
                     },
                     "icon": {
-                        "data": "🎓",
-                        "type": "emoji",
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                        "data": "🏢",
+                        "type": "emoji"
                     },
                     "max_lines": 1,
                     "text": "Check-in Tòa Trung Tâm UTE",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Check-in Tòa Trung Tâm UTE",
+                        "vn": "Check-in Tòa Trung Tâm UTE"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_ket_xe_thu_duc",
+                "overlay_id": "caption:ute_ac_san_ket_xe_nga_tu_thu_uc",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#FF416C",
                             "#FF4B2B"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png"
+                        ]
                     },
                     "icon": {
                         "data": "🚦",
@@ -471,42 +594,47 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đặc sản: Kẹt xe Ngã tư Thủ Đức",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Đặc sản: Kẹt xe Ngã tư Thủ Đức",
+                        "vn": "Đặc sản: Kẹt xe Ngã tư Thủ Đức"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_chieu_xuong_xuong",
+                "overlay_id": "caption:ute_sang_giang_uong_chieu_xuong_xuong",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#F2994A",
                             "#F2C94C"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                        ]
                     },
                     "icon": {
-                        "data": "🎓",
-                        "type": "emoji",
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                        "data": "🔧",
+                        "type": "emoji"
                     },
                     "max_lines": 1,
                     "text": "Sáng giảng đường, chiều xuống xưởng",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Sáng giảng đường, chiều xuống xưởng",
+                        "vn": "Sáng giảng đường, chiều xuống xưởng"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_code_xuyen_dem",
+                "overlay_id": "caption:ute_code_xuyen_man_em_tai_ute",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#0F2027",
                             "#2C5364"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "💻",
@@ -514,34 +642,40 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Code xuyên màn đêm tại UTE",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Code xuyên màn đêm tại UTE",
+                        "vn": "Code xuyên màn đêm tại UTE"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_trai_spkt",
+                "overlay_id": "caption:ute_trai_spkt_vua_gioi_vua_chung_tinh",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#FF758C",
                             "#FF7EB3"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎓",
-                        "type": "emoji",
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                        "type": "emoji"
                     },
                     "max_lines": 1,
                     "text": "Trai SPKT vừa giỏi vừa chung tình",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Trai SPKT vừa giỏi vừa chung tình",
+                        "vn": "Trai SPKT vừa giỏi vừa chung tình"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_qua_mon_tai_nang",
+                "overlay_id": "caption:ute_qua_mon_la_mot_loai_tai_nang",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -556,42 +690,47 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Qua môn là một loại tài năng",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Qua môn là một loại tài năng",
+                        "vn": "Qua môn là một loại tài năng"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_ky_su_tuong_lai",
+                "overlay_id": "caption:ute_ky_su_tuong_lai_ang_nap_nang_luong",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#FF8008",
                             "#FFC837"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                        ]
                     },
                     "icon": {
-                        "data": "🎓",
-                        "type": "emoji",
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                        "data": "🛠️",
+                        "type": "emoji"
                     },
                     "max_lines": 1,
                     "text": "Kỹ sư tương lai đang nạp năng lượng",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Kỹ sư tương lai đang nạp năng lượng",
+                        "vn": "Kỹ sư tương lai đang nạp năng lượng"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_hoc_bong_vay_goi",
+                "overlay_id": "caption:ute_hoc_bong_ute_ang_vay_goi",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#CAC531",
                             "#F3F9A7"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "🏆",
@@ -599,12 +738,16 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Học bổng UTE đang vẫy gọi",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Học bổng UTE đang vẫy gọi",
+                        "vn": "Học bổng UTE đang vẫy gọi"
+                    },
+                    "text_color": "#232526",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_ngu_gat_ca1",
+                "overlay_id": "caption:ute_ngu_gat_ca_1_luc_7h_sang",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -619,42 +762,47 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Ngủ gật ca 1 lúc 7h sáng",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Ngủ gật ca 1 lúc 7h sáng",
+                        "vn": "Ngủ gật ca 1 lúc 7h sáng"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_tu_hao_hcmute",
+                "overlay_id": "caption:ute_tu_hao_sinh_vien_hcmute",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#0575E6",
                             "#021B79"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
+                        ]
                     },
                     "icon": {
-                        "data": "🎓",
-                        "type": "emoji",
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
+                        "data": "💙",
+                        "type": "emoji"
                     },
                     "max_lines": 1,
                     "text": "Tự hào sinh viên HCMUTE",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Tự hào sinh viên HCMUTE",
+                        "vn": "Tự hào sinh viên HCMUTE"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_server_dktc_sap",
+                "overlay_id": "caption:ute_server_ktc_sap_nua_roi",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#ED213A",
                             "#93291E"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "💥",
@@ -662,20 +810,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Server ĐKTC sập nữa rồi",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Server ĐKTC sập nữa rồi",
+                        "vn": "Server ĐKTC sập nữa rồi"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_viem_mang_tui",
+                "overlay_id": "caption:ute_viem_mang_tui_o_thu_uc",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "💸",
@@ -683,12 +834,16 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Viêm màng túi ở Thủ Đức",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Viêm màng túi ở Thủ Đức",
+                        "vn": "Viêm màng túi ở Thủ Đức"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_chay_diem_danh",
+                "overlay_id": "caption:ute_chay_thuc_mang_cho_kip_iem_danh",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -703,12 +858,16 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Chạy thục mạng cho kịp điểm danh",
-                    "text_color": "#000000E6",
+                    "localized_text": {
+                        "en": "Chạy thục mạng cho kịp điểm danh",
+                        "vn": "Chạy thục mạng cho kịp điểm danh"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_on_thi_giua_ky",
+                "overlay_id": "caption:ute_on_thi_giua_ky_muon_xiu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -723,20 +882,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Ôn thi giữa kỳ muốn xỉu",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Ôn thi giữa kỳ muốn xỉu",
+                        "vn": "Ôn thi giữa kỳ muốn xỉu"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_khoanh_lui_tam_linh",
+                "overlay_id": "caption:ute_khoanh_lui_tam_linh_la_chinh",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#00C6FF",
                             "#0072FF"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png"
+                        ]
                     },
                     "icon": {
                         "data": "🤖",
@@ -744,12 +906,16 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Khoanh lụi: Tâm linh là chính",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Khoanh lụi: Tâm linh là chính",
+                        "vn": "Khoanh lụi: Tâm linh là chính"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_nam2_ngo_gia",
+                "overlay_id": "caption:ute_nam_2_ma_ngo_gia_10_tuoi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -764,20 +930,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Năm 2 mà ngỡ già 10 tuổi",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Năm 2 mà ngỡ già 10 tuổi",
+                        "vn": "Năm 2 mà ngỡ già 10 tuổi"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_nuoi_song_cafe",
+                "overlay_id": "caption:ute_nuoi_song_bang_ca_phe",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#3E1E04",
                             "#8E5431"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png"
+                        ]
                     },
                     "icon": {
                         "data": "☕",
@@ -785,12 +954,16 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Nuôi sống bằng cà phê",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Nuôi sống bằng cà phê",
+                        "vn": "Nuôi sống bằng cà phê"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ute_dung_hoi_drl",
+                "overlay_id": "caption:ute_ung_hoi_iem_ren_luyen",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -805,7 +978,11 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đừng hỏi điểm rèn luyện",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Đừng hỏi điểm rèn luyện",
+                        "vn": "Đừng hỏi điểm rèn luyện"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             }
@@ -1300,8 +1477,7 @@ if (true) {
                         "colors": [
                             "#4E342E",
                             "#8D6E63"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png"
+                        ]
                     },
                     "icon": {
                         "data": "☕",
@@ -1393,8 +1569,7 @@ if (true) {
                         "colors": [
                             "#1A237E",
                             "#455A64"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎬",
@@ -1615,8 +1790,7 @@ if (true) {
                         "colors": [
                             "#1E90FF",
                             "#00D4FF"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "💳",
@@ -1676,8 +1850,7 @@ if (true) {
                         "colors": [
                             "#9C27B0",
                             "#E91E63"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎤",
@@ -1757,8 +1930,7 @@ if (true) {
                         "colors": [
                             "#4CAF50",
                             "#00BCD4"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎮",
@@ -1878,8 +2050,7 @@ if (true) {
                         "colors": [
                             "#EC407A",
                             "#F44336"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "🐉",
@@ -2004,8 +2175,7 @@ if (true) {
                         "colors": [
                             "#546E7A",
                             "#263238"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png"
+                        ]
                     },
                     "icon": {
                         "data": "🌧️",
@@ -2185,8 +2355,7 @@ if (true) {
                         "colors": [
                             "#141E30",
                             "#243B55"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png"
+                        ]
                     },
                     "icon": {
                         "data": "🥀",
@@ -2346,8 +2515,7 @@ if (true) {
                         "colors": [
                             "#455A64",
                             "#263238"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png"
+                        ]
                     },
                     "icon": {
                         "data": "📷",
@@ -2367,8 +2535,7 @@ if (true) {
                         "colors": [
                             "#FF5722",
                             "#E64A19"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "⚡",
@@ -2448,8 +2615,7 @@ if (true) {
                         "colors": [
                             "#26A69A",
                             "#00897B"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png"
+                        ]
                     },
                     "icon": {
                         "data": "📷",
@@ -2784,8 +2950,7 @@ if (true) {
                         "colors": [
                             "#3F51B5",
                             "#1A237E"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png"
+                        ]
                     },
                     "icon": {
                         "data": "🌙",
@@ -3125,8 +3290,7 @@ if (true) {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "💸",
@@ -3146,8 +3310,7 @@ if (true) {
                         "colors": [
                             "#0F2027",
                             "#2C5364"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png"
+                        ]
                     },
                     "icon": {
                         "data": "☕",
@@ -3172,8 +3335,7 @@ if (true) {
                         "colors": [
                             "#1F1C2C",
                             "#928DAB"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎬",
@@ -3193,8 +3355,7 @@ if (true) {
                         "colors": [
                             "#FF416C",
                             "#FF4B2B"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png"
+                        ]
                     },
                     "icon": {
                         "data": "🔥",
@@ -3214,8 +3375,7 @@ if (true) {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "💸",
@@ -3275,8 +3435,7 @@ if (true) {
                         "colors": [
                             "#FF8008",
                             "#FFC837"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "🚀",
@@ -3316,8 +3475,7 @@ if (true) {
                         "colors": [
                             "#3E1E04",
                             "#8E5431"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png"
+                        ]
                     },
                     "icon": {
                         "data": "☕",
@@ -3337,8 +3495,7 @@ if (true) {
                         "colors": [
                             "#00B4DB",
                             "#0083B0"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎮",
@@ -3398,8 +3555,7 @@ if (true) {
                         "colors": [
                             "#654EA3",
                             "#EAAFC8"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png"
+                        ]
                     },
                     "icon": {
                         "data": "🌌",
@@ -3419,8 +3575,7 @@ if (true) {
                         "colors": [
                             "#F12711",
                             "#F5AF19"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "💳",
@@ -3440,8 +3595,7 @@ if (true) {
                         "colors": [
                             "#141E30",
                             "#243B55"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎧",
@@ -3461,8 +3615,7 @@ if (true) {
                         "colors": [
                             "#FBD3E9",
                             "#BB377D"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_boba_sweet.png"
+                        ]
                     },
                     "icon": {
                         "data": "🧋",
@@ -3482,8 +3635,7 @@ if (true) {
                         "colors": [
                             "#FF8008",
                             "#FFC837"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png"
+                        ]
                     },
                     "icon": {
                         "data": "🛵",
@@ -3563,8 +3715,7 @@ if (true) {
                         "colors": [
                             "#2193B0",
                             "#6DD5ED"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ocean_wave.png"
+                        ]
                     },
                     "icon": {
                         "data": "🏖️",
@@ -3584,8 +3735,7 @@ if (true) {
                         "colors": [
                             "#8E2DE2",
                             "#4A00E0"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "📈",
@@ -3605,8 +3755,7 @@ if (true) {
                         "colors": [
                             "#ED213A",
                             "#93291E"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png"
+                        ]
                     },
                     "icon": {
                         "data": "🏎️",
@@ -3626,8 +3775,7 @@ if (true) {
                         "colors": [
                             "#F2994A",
                             "#F2C94C"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cat_boss.png"
+                        ]
                     },
                     "icon": {
                         "data": "🐱",
@@ -3832,8 +3980,7 @@ if (true) {
                         "colors": [
                             "#0F2027",
                             "#2C5364"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png"
+                        ]
                     },
                     "icon": {
                         "data": "🌌",
@@ -3898,8 +4045,7 @@ if (true) {
                         "colors": [
                             "#3A7BD5",
                             "#3A6073"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png"
+                        ]
                     },
                     "icon": {
                         "data": "🌧️",
@@ -4159,8 +4305,7 @@ if (true) {
                         "colors": [
                             "#2193B0",
                             "#6DD5ED"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ocean_wave.png"
+                        ]
                     },
                     "icon": {
                         "data": "🌊",
@@ -4320,8 +4465,7 @@ if (true) {
                         "colors": [
                             "#2C3E50",
                             "#000000"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png"
+                        ]
                     },
                     "icon": {
                         "data": "🥀",
@@ -4421,8 +4565,7 @@ if (true) {
                         "colors": [
                             "#FF8008",
                             "#FFC837"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "🐉",
@@ -4462,8 +4605,7 @@ if (true) {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png"
+                        ]
                     },
                     "icon": {
                         "data": "💳",
@@ -4523,8 +4665,7 @@ if (true) {
                         "colors": [
                             "#FF512F",
                             "#DD2476"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎤",
@@ -4604,8 +4745,7 @@ if (true) {
                         "colors": [
                             "#00B4DB",
                             "#0083B0"
-                        ],
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png"
+                        ]
                     },
                     "icon": {
                         "data": "🎮",
