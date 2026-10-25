@@ -406,7 +406,7 @@ if (true) {
                             background: { colors: ["#1A2980", "#26D0CE"] },
                             icon: { data: "🏫", type: "emoji" },
                             max_lines: 1,
-                            text: "Số 1 Võ Văn Ngân mãi đỉnh",
+                            text: "Số 1 Võ Văn Ngân",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
@@ -436,18 +436,6 @@ if (true) {
                         }
                     },
                     {
-                        overlay_id: "caption:ute_cuu_do_an",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#8E2DE2", "#4A00E0"] },
-                            icon: { data: "📐", type: "emoji" },
-                            max_lines: 1,
-                            text: "Cứu bé khỏi Đồ Án môn học",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
                         overlay_id: "caption:ute_chieu_xuong_xuong",
                         source: "remote",
                         caption: {
@@ -472,42 +460,6 @@ if (true) {
                         }
                     },
                     {
-                        overlay_id: "caption:ute_thu_vien_khu_a",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#00B4DB", "#0083B0"] },
-                            icon: { data: "❄️", type: "emoji" },
-                            max_lines: 1,
-                            text: "Thư viện Khu A máy lạnh cực mát",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:ute_cafe_vvn",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#3E1E04", "#8E5431"] },
-                            icon: { data: "☕", type: "emoji" },
-                            max_lines: 1,
-                            text: "Cà phê Võ Văn Ngân không?",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:ute_metro_cong_truong",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#11998E", "#38EF7D"] },
-                            icon: { data: "🚇", type: "emoji" },
-                            max_lines: 1,
-                            text: "Đi Metro tới thẳng cổng trường",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
                         overlay_id: "caption:ute_trai_spkt",
                         source: "remote",
                         caption: {
@@ -527,30 +479,6 @@ if (true) {
                             icon: { data: "📝", type: "emoji" },
                             max_lines: 1,
                             text: "Qua môn là một loại tài năng",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:ute_an_trua_lvc",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#F12711", "#F5AF19"] },
-                            icon: { data: "🍜", type: "emoji" },
-                            max_lines: 1,
-                            text: "Ăn trưa Lê Văn Chí - Hoàng Diệu 2",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:ute_mua_ngap_vvn",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#3A7BD5", "#3A6073"] },
-                            icon: { data: "🌧️", type: "emoji" },
-                            max_lines: 1,
-                            text: "Mưa ngập Võ Văn Ngân rồi cứu với",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
@@ -592,30 +520,6 @@ if (true) {
                         }
                     },
                     {
-                        overlay_id: "caption:ute_balo_do_an",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#4B6CB7", "#182848"] },
-                            icon: { data: "🎒", type: "emoji" },
-                            max_lines: 1,
-                            text: "Balo nặng trĩu laptop và đồ án",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:ute_khoa_ky_thuat",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#00C6FF", "#0072FF"] },
-                            icon: { data: "⚡", type: "emoji" },
-                            max_lines: 1,
-                            text: "Cơ Khí - Điện - CNTT mãi đỉnh",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
                         overlay_id: "caption:ute_tu_hao_hcmute",
                         source: "remote",
                         caption: {
@@ -623,6 +527,102 @@ if (true) {
                             icon: { data: "💙", type: "emoji" },
                             max_lines: 1,
                             text: "Tự hào sinh viên HCMUTE",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_chay_deadline",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#ED213A", "#93291E"] },
+                            icon: { data: "🏃", type: "emoji" },
+                            max_lines: 1,
+                            text: "Chạy deadline cong cả mông",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_do_an_chay_roi",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#11998E", "#38EF7D"] },
+                            icon: { data: "🔌", type: "emoji" },
+                            max_lines: 1,
+                            text: "Đồ án chạy rồi, khóc thét!",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_ve_cad_mo_mat",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#4B6CB7", "#182848"] },
+                            icon: { data: "📐", type: "emoji" },
+                            max_lines: 1,
+                            text: "Vẽ CAD mờ cả hai con mắt",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_bug_la_tinh_nang",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#00C6FF", "#0072FF"] },
+                            icon: { data: "🤖", type: "emoji" },
+                            max_lines: 1,
+                            text: "Bug này là tính năng nhé",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_xe_buyt_08",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#F3904F", "#3B4371"] },
+                            icon: { data: "🚌", type: "emoji" },
+                            max_lines: 1,
+                            text: "Đua xe buýt 08 kịp ca thi",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_cafe_dam_dac",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#3E1E04", "#8E5431"] },
+                            icon: { data: "☕", type: "emoji" },
+                            max_lines: 1,
+                            text: "Cà phê đậm đặc nuôi cơ thể",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_muc_tieu_4nam",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#8E2DE2", "#4A00E0"] },
+                            icon: { data: "🎯", type: "emoji" },
+                            max_lines: 1,
+                            text: "Mục tiêu 4 năm ra trường",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_tay_nghe_dinh_chop",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#F77062", "#FE5196"] },
+                            icon: { data: "⚡", type: "emoji" },
+                            max_lines: 1,
+                            text: "Tay nghề đỉnh chóp SPKT",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
