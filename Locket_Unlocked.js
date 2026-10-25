@@ -67,11 +67,11 @@ if (true) {
                 {
                     title: "Chào mừng bạn đến với Locket Gold ✨",
                     body: "Chúc bạn có những trải nghiệm tuyệt vời cùng Locket Gold 💛",
-                    imageURL: "https://i.ibb.co/gZ6HkyWT/L-n-Gold-R-i.png"
+                    imageURL: "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/locket_gold.png"
                 }
             ],
             primary_button_title: "Xong",
-            campaign: "locket_gold_welcome_v3",
+            campaign: "locket_gold_welcome_v4",
             start_at: "2020-01-01T00:00:00",
             end_at: "2099-12-31T23:59:59",
             use_local_time_zone: true
@@ -297,14 +297,7 @@ if (true) {
         widget_stale_state_enabled: "false",
         widget_last_sent_indicator: "false",
         widget_sync_token_reload_mode: "clearTokenNever",
-        widget_frame_event: JSON.stringify({
-            uid: "midautumn_2026",
-            url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
-            use_local_time_zone: true,
-            placement: "below",
-            start_at: "2020-01-01T00:00:00",
-            end_at: "2099-12-31T23:59:59"
-        }),
+
         live_activity_onboarding: "true",
         live_activity_onboarding_variant: "friending",
         register_live_activity_push_to_start_token: "true",
