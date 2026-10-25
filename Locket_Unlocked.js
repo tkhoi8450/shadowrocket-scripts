@@ -532,97 +532,97 @@ if (true) {
                         }
                     },
                     {
-                        overlay_id: "caption:ute_chay_deadline",
+                        overlay_id: "caption:ute_server_dktc_sap",
                         source: "remote",
                         caption: {
                             background: { colors: ["#ED213A", "#93291E"] },
-                            icon: { data: "🏃", type: "emoji" },
+                            icon: { data: "💥", type: "emoji" },
                             max_lines: 1,
-                            text: "Chạy deadline cong cả mông",
+                            text: "Server ĐKTC sập nữa rồi",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
                     {
-                        overlay_id: "caption:ute_do_an_chay_roi",
+                        overlay_id: "caption:ute_viem_mang_tui",
                         source: "remote",
                         caption: {
                             background: { colors: ["#11998E", "#38EF7D"] },
-                            icon: { data: "🔌", type: "emoji" },
+                            icon: { data: "💸", type: "emoji" },
                             max_lines: 1,
-                            text: "Đồ án chạy rồi, khóc thét!",
+                            text: "Viêm màng túi ở Thủ Đức",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
                     {
-                        overlay_id: "caption:ute_ve_cad_mo_mat",
+                        overlay_id: "caption:ute_chay_diem_danh",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#FF8008", "#FFC837"] },
+                            icon: { data: "🏃", type: "emoji" },
+                            max_lines: 1,
+                            text: "Chạy thục mạng cho kịp điểm danh",
+                            text_color: "#000000E6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:ute_on_thi_giua_ky",
                         source: "remote",
                         caption: {
                             background: { colors: ["#4B6CB7", "#182848"] },
-                            icon: { data: "📐", type: "emoji" },
+                            icon: { data: "📚", type: "emoji" },
                             max_lines: 1,
-                            text: "Vẽ CAD mờ cả hai con mắt",
+                            text: "Ôn thi giữa kỳ muốn xỉu",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
                     {
-                        overlay_id: "caption:ute_bug_la_tinh_nang",
+                        overlay_id: "caption:ute_khoanh_lui_tam_linh",
                         source: "remote",
                         caption: {
                             background: { colors: ["#00C6FF", "#0072FF"] },
                             icon: { data: "🤖", type: "emoji" },
                             max_lines: 1,
-                            text: "Bug này là tính năng nhé",
+                            text: "Khoanh lụi: Tâm linh là chính",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
                     {
-                        overlay_id: "caption:ute_xe_buyt_08",
+                        overlay_id: "caption:ute_nam2_ngo_gia",
                         source: "remote",
                         caption: {
-                            background: { colors: ["#F3904F", "#3B4371"] },
-                            icon: { data: "🚌", type: "emoji" },
+                            background: { colors: ["#3A1C71", "#D76D77"] },
+                            icon: { data: "🥱", type: "emoji" },
                             max_lines: 1,
-                            text: "Đua xe buýt 08 kịp ca thi",
+                            text: "Năm 2 mà ngỡ già 10 tuổi",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
                     {
-                        overlay_id: "caption:ute_cafe_dam_dac",
+                        overlay_id: "caption:ute_nuoi_song_cafe",
                         source: "remote",
                         caption: {
                             background: { colors: ["#3E1E04", "#8E5431"] },
                             icon: { data: "☕", type: "emoji" },
                             max_lines: 1,
-                            text: "Cà phê đậm đặc nuôi cơ thể",
+                            text: "Nuôi sống bằng cà phê",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
                     },
                     {
-                        overlay_id: "caption:ute_muc_tieu_4nam",
+                        overlay_id: "caption:ute_dung_hoi_drl",
                         source: "remote",
                         caption: {
-                            background: { colors: ["#8E2DE2", "#4A00E0"] },
-                            icon: { data: "🎯", type: "emoji" },
+                            background: { colors: ["#232526", "#414345"] },
+                            icon: { data: "🚫", type: "emoji" },
                             max_lines: 1,
-                            text: "Mục tiêu 4 năm ra trường",
-                            text_color: "#FFFFFFE6",
-                            type: "static_content"
-                        }
-                    },
-                    {
-                        overlay_id: "caption:ute_tay_nghe_dinh_chop",
-                        source: "remote",
-                        caption: {
-                            background: { colors: ["#F77062", "#FE5196"] },
-                            icon: { data: "⚡", type: "emoji" },
-                            max_lines: 1,
-                            text: "Tay nghề đỉnh chóp SPKT",
+                            text: "Đừng hỏi điểm rèn luyện",
                             text_color: "#FFFFFFE6",
                             type: "static_content"
                         }
