@@ -1,5 +1,5 @@
 #!name=My Ultimate Shadowrocket (Private GitHub Edition)
-#!desc=Bộ kịch bản trọn gói 22 script VIP cá nhân hóa từ kho GitHub tkhoi8450/shadowrocket-scripts: Locket Gold/Unlocked + YouTube PiP/Phát nền/Chặn QC + Spotify + SoundCloud + 12 App VIP (Lightroom, VSCO, PicsArt, CamScanner, Wink, AlightMotion, Meitu, Snow, BeautyPlus, Kinemaster, Truecaller, iTunes) + Sub-Store.
+#!desc=Bộ kịch bản trọn gói 22 script VIP cá nhân hóa từ kho GitHub tkhoi8450/shadowrocket-scripts: Locket Gold/Unlocked (Quay 60s + Nút Mic + 24 Hot Trend 2026) + YouTube PiP/Phát nền/Chặn QC + Spotify + SoundCloud + 11 App VIP (Lightroom, VSCO, PicsArt, CamScanner, Wink, AlightMotion, Meitu, Snow, BeautyPlus, Kinemaster, Truecaller, iTunes) + Sub-Store.
 #!author=tkhoi8450
 #!homepage=https://github.com/tkhoi8450/shadowrocket-scripts
 #!howtouse=Shadowrocket
@@ -40,8 +40,8 @@ locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleap
 # ==========================================
 # 2. YouTube & YouTube Music Enhance (PiP, Phát nền, Chặn QC, Phụ đề Tiếng Việt)
 # ==========================================
-youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js,argument="{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}"
-youtube.request.init = type=http-request,pattern=^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js,argument="{"lyricLang":"vi","captionLang":"vi"}"
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js,argument="{\"lyricLang\":\"vi\",\"captionLang\":\"vi\",\"blockUpload\":true,\"blockImmersive\":true,\"blockShorts\":false,\"debug\":false}"
+youtube.request.init = type=http-request,pattern=^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js,argument="{\"lyricLang\":\"vi\",\"captionLang\":\"vi\"}"
 youtube.request.log_event = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js
 
 # ==========================================
@@ -52,9 +52,8 @@ spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|
 spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/spotify-proto.js,script-update-interval=0
 
 # ==========================================
-# 4. Mở khóa 12 App Chỉnh Ảnh & Tiện Ích VIP
+# 4. Mở khóa 11 App Chỉnh Ảnh & Tiện Ích VIP
 # ==========================================
-RevenueCatVip = type=http-response,pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/revenuecat.js,requires-body=true,max-size=-1,timeout=60
 VSCO = type=http-request,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/VSCO.js,requires-body=true,timeout=60
 AlightMotion = type=http-response,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/AlightMotion.js,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,max-size=131072,requires-body=true,timeout=10
 PicsArt = type=http-request,pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/PicsArt.js,requires-body=true,timeout=60
