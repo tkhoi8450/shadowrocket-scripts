@@ -386,124 +386,6 @@ if (true) {
         ]),
         overlay_items: JSON.stringify([
     {
-        "section": "🧪 Thử Nghiệm Nền Ảnh (Test Image BG)",
-        "items": [
-            {
-                "overlay_id": "test:bg_url_only",
-                "source": "remote",
-                "caption": {
-                    "background": {
-                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
-                    },
-                    "icon": {
-                        "data": "🖼️",
-                        "type": "emoji"
-                    },
-                    "max_lines": 1,
-                    "text": "Test 1: BG url",
-                    "text_color": "#FFFFFF",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "test:bg_image_url_only",
-                "source": "remote",
-                "caption": {
-                    "background": {
-                        "image_url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
-                    },
-                    "icon": {
-                        "data": "🖼️",
-                        "type": "emoji"
-                    },
-                    "max_lines": 1,
-                    "text": "Test 2: BG image_url",
-                    "text_color": "#FFFFFF",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "test:bg_type_image",
-                "source": "remote",
-                "caption": {
-                    "background": {
-                        "type": "image",
-                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
-                    },
-                    "icon": {
-                        "data": "🖼️",
-                        "type": "emoji"
-                    },
-                    "max_lines": 1,
-                    "text": "Test 3: BG type image",
-                    "text_color": "#FFFFFF",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "test:bg_transparent_url",
-                "source": "remote",
-                "caption": {
-                    "background": {
-                        "colors": [
-                            "#00000000",
-                            "#00000000"
-                        ],
-                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png"
-                    },
-                    "icon": {
-                        "data": "🖼️",
-                        "type": "emoji"
-                    },
-                    "max_lines": 1,
-                    "text": "Test 4: Transparent + url",
-                    "text_color": "#FFFFFF",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "test:icon_image_url",
-                "source": "remote",
-                "caption": {
-                    "background": {
-                        "colors": [
-                            "#0052D4",
-                            "#4364F7"
-                        ]
-                    },
-                    "icon": {
-                        "type": "image",
-                        "url": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
-                    },
-                    "max_lines": 1,
-                    "text": "Test 5: Icon type image",
-                    "text_color": "#FFFFFF",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "test:icon_type_url",
-                "source": "remote",
-                "caption": {
-                    "background": {
-                        "colors": [
-                            "#0052D4",
-                            "#4364F7"
-                        ]
-                    },
-                    "icon": {
-                        "type": "url",
-                        "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_logo.png"
-                    },
-                    "max_lines": 1,
-                    "text": "Test 6: Icon data URL",
-                    "text_color": "#FFFFFF",
-                    "type": "static_content"
-                }
-            }
-        ]
-    },
-    {
         "section": "🎓 Sinh Viên HCMUTE ⚙️",
         "items": [
             {
@@ -513,8 +395,14 @@ if (true) {
                     "background": {
                         "colors": [
                             "#0052D4",
-                            "#4364F7"
-                        ]
+                            "#4364F7",
+                            "#6FB1FC"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "⚙️",
@@ -537,8 +425,14 @@ if (true) {
                     "background": {
                         "colors": [
                             "#1A2980",
-                            "#26D0CE"
-                        ]
+                            "#26D0CE",
+                            "#68EAC6"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🏫",
@@ -560,9 +454,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#141E30",
-                            "#243B55"
-                        ]
+                            "#0F2027",
+                            "#203A43",
+                            "#2C5364"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🏢",
@@ -585,8 +485,14 @@ if (true) {
                     "background": {
                         "colors": [
                             "#FF416C",
-                            "#FF4B2B"
-                        ]
+                            "#FF4B2B",
+                            "#FF7B00"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🚦",
@@ -608,9 +514,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#F2994A",
-                            "#F2C94C"
-                        ]
+                            "#D35400",
+                            "#F39C12",
+                            "#F1C40F"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🔧",
@@ -632,9 +544,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#0F2027",
-                            "#2C5364"
-                        ]
+                            "#0D1117",
+                            "#161B22",
+                            "#00F2FE"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💻",
@@ -656,9 +574,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#FF758C",
-                            "#FF7EB3"
-                        ]
+                            "#8E2DE2",
+                            "#4A00E0",
+                            "#FF6B8B"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎓",
@@ -681,6 +605,7 @@ if (true) {
                     "background": {
                         "colors": [
                             "#654EA3",
+                            "#EA7E9F",
                             "#EAAFC8"
                         ]
                     },
@@ -704,9 +629,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#FF8008",
-                            "#FFC837"
-                        ]
+                            "#FF512F",
+                            "#DD2476",
+                            "#FF7657"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🛠️",
@@ -728,9 +659,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#CAC531",
-                            "#F3F9A7"
-                        ]
+                            "#FFE000",
+                            "#799F0C",
+                            "#00BF8F"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🏆",
@@ -753,7 +690,8 @@ if (true) {
                     "background": {
                         "colors": [
                             "#232526",
-                            "#414345"
+                            "#414345",
+                            "#5C6166"
                         ]
                     },
                     "icon": {
@@ -776,9 +714,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#0575E6",
-                            "#021B79"
-                        ]
+                            "#005AA7",
+                            "#0083B0",
+                            "#FFFDE4"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💙",
@@ -801,8 +745,14 @@ if (true) {
                     "background": {
                         "colors": [
                             "#ED213A",
-                            "#93291E"
-                        ]
+                            "#93291E",
+                            "#FF416C"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💥",
@@ -825,8 +775,14 @@ if (true) {
                     "background": {
                         "colors": [
                             "#11998E",
-                            "#38EF7D"
-                        ]
+                            "#38EF7D",
+                            "#A8F5D0"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💸",
@@ -848,8 +804,9 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#FF8008",
-                            "#FFC837"
+                            "#F857A6",
+                            "#FF5858",
+                            "#FF8C00"
                         ]
                     },
                     "icon": {
@@ -873,7 +830,8 @@ if (true) {
                     "background": {
                         "colors": [
                             "#4B6CB7",
-                            "#182848"
+                            "#182848",
+                            "#2C3E50"
                         ]
                     },
                     "icon": {
@@ -897,8 +855,14 @@ if (true) {
                     "background": {
                         "colors": [
                             "#00C6FF",
-                            "#0072FF"
-                        ]
+                            "#0072FF",
+                            "#7B2CBF"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🤖",
@@ -921,7 +885,8 @@ if (true) {
                     "background": {
                         "colors": [
                             "#3A1C71",
-                            "#D76D77"
+                            "#D76D77",
+                            "#FFAF7B"
                         ]
                     },
                     "icon": {
@@ -944,9 +909,15 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#3E1E04",
-                            "#8E5431"
-                        ]
+                            "#2C1B18",
+                            "#5D3A2C",
+                            "#9A7B68"
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "☕",
@@ -968,8 +939,9 @@ if (true) {
                 "caption": {
                     "background": {
                         "colors": [
-                            "#232526",
-                            "#414345"
+                            "#1E130C",
+                            "#9A8478",
+                            "#3E2723"
                         ]
                     },
                     "icon": {
@@ -1363,6 +1335,108 @@ if (true) {
     {
         "section": "🎨 Locket Gold Ultimate",
         "items": [
+            {
+                "overlay_id": "caption:love_vietnam",
+                "source": "remote",
+                "alt_text": "Tôi yêu Việt Nam",
+                "caption": {
+                    "background": {
+                        "image": {
+                            "type": "image",
+                            "data": "star_sign_background",
+                            "source": "local"
+                        },
+                        "colors": [
+                            "#DA251D",
+                            "#DA251D"
+                        ]
+                    },
+                    "icon": {
+                        "type": "image",
+                        "data": "https://storage.googleapis.com/locket-public/journal_calendar_assets/holiday_indicators/valentines_indicator%403x.png",
+                        "source": "url"
+                    },
+                    "max_lines": 1,
+                    "text": "Tôi yêu Việt Nam",
+                    "text_color": "#FFFF00",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "caption:film_diary",
+                "source": "remote",
+                "alt_text": "Một ngày rất chill",
+                "caption": {
+                    "background": {
+                        "image": {
+                            "type": "image",
+                            "data": "https://public.locketcamera.com/locket-public/gold_promos/gold_promo_camera_roll.png",
+                            "source": "url"
+                        },
+                        "colors": [
+                            "#D2B48C",
+                            "#8B4513"
+                        ]
+                    },
+                    "icon": {
+                        "type": "image",
+                        "data": "https://public.locketcamera.com/locket-public/journal_calendar_assets/holiday_indicators/st_patricks_indicator%403x.png",
+                        "source": "url"
+                    },
+                    "max_lines": 1,
+                    "text": "Một ngày rất chill",
+                    "text_color": "#FFFDD0",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "caption:genz_flex",
+                "source": "remote",
+                "alt_text": "Mood: Chill",
+                "caption": {
+                    "background": {
+                        "image": {
+                            "type": "image",
+                            "data": "https://public.locketcamera.com/locket-public/gold_promos/gold_promo_widgets.png",
+                            "source": "url"
+                        },
+                        "colors": [
+                            "#FF9A9E",
+                            "#FECFEF"
+                        ]
+                    },
+                    "icon": {
+                        "data": "camera.fill",
+                        "type": "sf_symbol",
+                        "color": "#FF007F"
+                    },
+                    "max_lines": 1,
+                    "text": "Mood: Chill 💅",
+                    "text_color": "#FFFFFF",
+                    "type": "static_content"
+                }
+            },
+            {
+                "overlay_id": "caption:no_memory",
+                "source": "remote",
+                "caption": {
+                    "background": {
+                        "image": {
+                            "type": "image",
+                            "data": "https://public.locketcamera.com/locket-public/overlays/forgotten_island/forgotten_island_bg.png",
+                            "source": "url"
+                        },
+                        "colors": [
+                            "#1A1A2E",
+                            "#16213E"
+                        ]
+                    },
+                    "max_lines": 1,
+                    "text": "NO MEMORY LEFT BEHIND",
+                    "text_color": "#FFFFFFE6",
+                    "type": "static_content"
+                }
+            },
             {
                 "overlay_id": "caption:locket_gold_ultimate",
                 "source": "remote",
@@ -3328,13 +3402,14 @@ if (true) {
         "section": "🔥 Hot Trend 2026",
         "items": [
             {
-                "overlay_id": "caption:tuyet_doi_dien_anh",
+                "overlay_id": "caption:trend_tuyet_oi_ien_anh",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#1F1C2C",
-                            "#928DAB"
+                            "#0F2027",
+                            "#2C5364",
+                            "#D4AF37"
                         ]
                     },
                     "icon": {
@@ -3343,18 +3418,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Tuyệt đối điện ảnh",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Tuyệt đối điện ảnh",
+                        "vn": "Tuyệt đối điện ảnh"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:dinh_noc_kich_tran",
+                "overlay_id": "caption:trend_inh_noc_kich_tran",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#FF416C",
-                            "#FF4B2B"
+                            "#FF4B2B",
+                            "#FFE600"
                         ]
                     },
                     "icon": {
@@ -3363,18 +3443,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đỉnh nóc kịch trần",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Đỉnh nóc kịch trần",
+                        "vn": "Đỉnh nóc kịch trần"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ting_ting_50tr",
+                "overlay_id": "caption:trend_ting_ting_50_000_000",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#11998E",
-                            "#38EF7D"
+                            "#F7971E",
+                            "#FFD200",
+                            "#FFEAA7"
                         ]
                     },
                     "icon": {
@@ -3383,18 +3468,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Ting ting! +50.000.000đ",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Ting ting! +50.000.000đ",
+                        "vn": "Ting ting! +50.000.000đ"
+                    },
+                    "text_color": "#232526",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:aura_10000",
+                "overlay_id": "caption:trend_aura_10_000",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#4776E6",
-                            "#8E54E9"
+                            "#8A2387",
+                            "#E94057",
+                            "#F27121"
                         ]
                     },
                     "icon": {
@@ -3403,18 +3493,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Aura +10.000",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Aura +10.000",
+                        "vn": "Aura +10.000"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:tam_bat_bien",
+                "overlay_id": "caption:trend_tam_bat_bien_giua_dong_oi",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#0F2027",
-                            "#2C5364"
+                            "#134E5E",
+                            "#71B280",
+                            "#C8E6C9"
                         ]
                     },
                     "icon": {
@@ -3423,18 +3518,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Tâm bất biến giữa dòng đời",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Tâm bất biến giữa dòng đời",
+                        "vn": "Tâm bất biến giữa dòng đời"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:dang_ban_kiem_tien_ty",
+                "overlay_id": "caption:trend_ang_ban_kiem_tien_ty",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#FF8008",
-                            "#FFC837"
+                            "#141E30",
+                            "#243B55",
+                            "#FFD700"
                         ]
                     },
                     "icon": {
@@ -3443,18 +3543,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đang bận kiếm tiền tỷ",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Đang bận kiếm tiền tỷ",
+                        "vn": "Đang bận kiếm tiền tỷ"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:dang_cap_la_mai_mai",
+                "overlay_id": "caption:trend_ang_cap_la_mai_mai",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#232526",
-                            "#414345"
+                            "#000000",
+                            "#434343",
+                            "#8E9EAB"
                         ]
                     },
                     "icon": {
@@ -3463,18 +3568,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đẳng cấp là mãi mãi",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Đẳng cấp là mãi mãi",
+                        "vn": "Đẳng cấp là mãi mãi"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ca_phe_den_khong_duong",
+                "overlay_id": "caption:trend_ca_phe_en_khong_uong",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#3E1E04",
-                            "#8E5431"
+                            "#24140E",
+                            "#4B2519",
+                            "#8B5A2B"
                         ]
                     },
                     "icon": {
@@ -3483,18 +3593,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Cà phê đen không đường",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Cà phê đen không đường",
+                        "vn": "Cà phê đen không đường"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ganh_team_cong_ca_lung",
+                "overlay_id": "caption:trend_ganh_team_cong_ca_lung",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#00B4DB",
-                            "#0083B0"
+                            "#4776E6",
+                            "#8E54E9",
+                            "#00F2FE"
                         ]
                     },
                     "icon": {
@@ -3503,18 +3618,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Gánh team còng cả lưng",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Gánh team còng cả lưng",
+                        "vn": "Gánh team còng cả lưng"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:mien_tiep_chuyen_xam",
+                "overlay_id": "caption:trend_mien_tiep_chuyen_xam",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#CB356B",
-                            "#BD3F32"
+                            "#EB3349",
+                            "#F45C43",
+                            "#D31027"
                         ]
                     },
                     "icon": {
@@ -3523,18 +3643,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Miễn tiếp chuyện xàm",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Miễn tiếp chuyện xàm",
+                        "vn": "Miễn tiếp chuyện xàm"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:do_body_khong_do_tinh",
+                "overlay_id": "caption:trend_o_body_chu_khong_o_tinh",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#1D976C",
-                            "#93F9B9"
+                            "#1F1C18",
+                            "#8E0E00",
+                            "#1F1C18"
                         ]
                     },
                     "icon": {
@@ -3543,18 +3668,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Độ body chứ không độ tình",
-                    "text_color": "#000000E6",
+                    "localized_text": {
+                        "en": "Độ body chứ không độ tình",
+                        "vn": "Độ body chứ không độ tình"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:he_tu_tuong_doc_lap",
+                "overlay_id": "caption:trend_he_tu_tuong_oc_lap_tu_do",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#654EA3",
-                            "#EAAFC8"
+                            "#2E0854",
+                            "#6A0572",
+                            "#AB83A1"
                         ]
                     },
                     "icon": {
@@ -3563,18 +3693,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Hệ tư tưởng độc lập tự do",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Hệ tư tưởng độc lập tự do",
+                        "vn": "Hệ tư tưởng độc lập tự do"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:quet_the_khong_nhin_gia",
+                "overlay_id": "caption:trend_quet_the_khong_nhin_gia",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#F12711",
-                            "#F5AF19"
+                            "#232526",
+                            "#414345",
+                            "#F39C12"
                         ]
                     },
                     "icon": {
@@ -3583,18 +3718,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Quẹt thẻ không nhìn giá",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Quẹt thẻ không nhìn giá",
+                        "vn": "Quẹt thẻ không nhìn giá"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:nhac_len_la_quen_het",
+                "overlay_id": "caption:trend_nhac_len_la_quen_het",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#141E30",
-                            "#243B55"
+                            "#5F0A87",
+                            "#A4508B",
+                            "#FF867A"
                         ]
                     },
                     "icon": {
@@ -3603,18 +3743,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Nhạc lên là quên hết",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Nhạc lên là quên hết",
+                        "vn": "Nhạc lên là quên hết"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:tra_sua_chua_lanh",
+                "overlay_id": "caption:trend_tra_sua_chua_lanh_tam_hon",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#FBD3E9",
-                            "#BB377D"
+                            "#FFB6C1",
+                            "#FFA07A",
+                            "#FFE4E1"
                         ]
                     },
                     "icon": {
@@ -3623,18 +3768,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Trà sữa chữa lành tâm hồn",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Trà sữa chữa lành tâm hồn",
+                        "vn": "Trà sữa chữa lành tâm hồn"
+                    },
+                    "text_color": "#4A2E2B",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:toi_nay_di_luon_pho",
+                "overlay_id": "caption:trend_toi_nay_i_luon_pho_khong",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#FF8008",
-                            "#FFC837"
+                            "#16A085",
+                            "#F4D03F",
+                            "#E67E22"
                         ]
                     },
                     "icon": {
@@ -3643,18 +3793,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Tối nay đi lượn phố không?",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Tối nay đi lượn phố không?",
+                        "vn": "Tối nay đi lượn phố không?"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:dang_sac_lai_nhan_pham",
+                "overlay_id": "caption:trend_ang_sac_lai_nhan_pham",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#3A1C71",
-                            "#D76D77"
+                            "#0F2027",
+                            "#2C5364",
+                            "#00FF87"
                         ]
                     },
                     "icon": {
@@ -3663,18 +3818,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đang sạc lại nhân phẩm",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Đang sạc lại nhân phẩm",
+                        "vn": "Đang sạc lại nhân phẩm"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:lowkey_chat_luong_cao",
+                "overlay_id": "caption:trend_lowkey_nhung_chat_luong_cao",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#000000",
-                            "#434343"
+                            "#2C3E50",
+                            "#3498DB",
+                            "#F1C40F"
                         ]
                     },
                     "icon": {
@@ -3683,18 +3843,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Lowkey nhưng chất lượng cao",
-                    "text_color": "#FFD700",
+                    "localized_text": {
+                        "en": "Lowkey nhưng chất lượng cao",
+                        "vn": "Lowkey nhưng chất lượng cao"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:doi_bung_qua_cuu_voi",
+                "overlay_id": "caption:trend_oi_bung_qua_cuu_voi",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#E65C00",
-                            "#F9D423"
+                            "#F12711",
+                            "#F5AF19",
+                            "#FFE600"
                         ]
                     },
                     "icon": {
@@ -3703,18 +3868,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đói bụng quá cứu với",
-                    "text_color": "#000000E6",
+                    "localized_text": {
+                        "en": "Đói bụng quá cứu với",
+                        "vn": "Đói bụng quá cứu với"
+                    },
+                    "text_color": "#232526",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:muon_di_tron_o_noi_xa",
+                "overlay_id": "caption:trend_muon_i_tron_o_mot_noi_xa",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#2193B0",
-                            "#6DD5ED"
+                            "#6DD5ED",
+                            "#E0F7FA"
                         ]
                     },
                     "icon": {
@@ -3723,18 +3893,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Muốn đi trốn ở một nơi xa",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Muốn đi trốn ở một nơi xa",
+                        "vn": "Muốn đi trốn ở một nơi xa"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:co_phieu_tim_lim",
+                "overlay_id": "caption:trend_co_phieu_tim_lim_tim_sim",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
+                            "#4A00E0",
                             "#8E2DE2",
-                            "#4A00E0"
+                            "#DA70D6"
                         ]
                     },
                     "icon": {
@@ -3743,18 +3918,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Cổ phiếu tím lịm tìm sim",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Cổ phiếu tím lịm tìm sim",
+                        "vn": "Cổ phiếu tím lịm tìm sim"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:khong_noi_nhieu_len_xe",
+                "overlay_id": "caption:trend_khong_noi_nhieu_len_xe",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#ED213A",
-                            "#93291E"
+                            "#B24592",
+                            "#F15F79",
+                            "#FF9966"
                         ]
                     },
                     "icon": {
@@ -3763,18 +3943,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Không nói nhiều, lên xe!",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Không nói nhiều, lên xe!",
+                        "vn": "Không nói nhiều, lên xe!"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:hoang_thuong_gia_lam",
+                "overlay_id": "caption:trend_hoang_thuong_gia_lam",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#F2994A",
-                            "#F2C94C"
+                            "#2B1055",
+                            "#7597DE",
+                            "#FAD0C4"
                         ]
                     },
                     "icon": {
@@ -3783,18 +3968,23 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Hoàng thượng giá lâm",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Hoàng thượng giá lâm",
+                        "vn": "Hoàng thượng giá lâm"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:vibe_hom_nay_10_diem",
+                "overlay_id": "caption:trend_vibe_hom_nay_10_iem_khong_co_nhung",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
-                            "#11998E",
-                            "#38EF7D"
+                            "#FF007F",
+                            "#7928CA",
+                            "#FF0080"
                         ]
                     },
                     "icon": {
@@ -3803,7 +3993,11 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Vibe hôm nay: 10 điểm không có nhưng",
-                    "text_color": "#FFFFFFE6",
+                    "localized_text": {
+                        "en": "Vibe hôm nay: 10 điểm không có nhưng",
+                        "vn": "Vibe hôm nay: 10 điểm không có nhưng"
+                    },
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             }
