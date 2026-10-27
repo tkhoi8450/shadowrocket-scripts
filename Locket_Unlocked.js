@@ -67,7 +67,7 @@ if (true) {
                 {
                     title: "Chào mừng bạn đến với Locket Gold ✨",
                     body: "Chúc bạn có những trải nghiệm tuyệt vời cùng Locket Gold 💛",
-                    imageURL: "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/locket_gold.png"
+                    imageURL: "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/locket_gold.png?v=2"
                 }
             ],
             primary_button_title: "Xong",
@@ -400,7 +400,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ute_tech_blue.png?v=2",
                             "source": "url"
                         }
                     },
@@ -430,7 +430,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ute_vovanngan.png?v=2",
                             "source": "url"
                         }
                     },
@@ -460,7 +460,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ute_central_building.png?v=2",
                             "source": "url"
                         }
                     },
@@ -490,7 +490,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png?v=2",
                             "source": "url"
                         }
                     },
@@ -520,7 +520,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ute_workshop.png?v=2",
                             "source": "url"
                         }
                     },
@@ -550,7 +550,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
                             "source": "url"
                         }
                     },
@@ -580,7 +580,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ute_spkt_love.png?v=2",
                             "source": "url"
                         }
                     },
@@ -635,7 +635,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ute_engineer_energy.png?v=2",
                             "source": "url"
                         }
                     },
@@ -665,7 +665,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
                             "source": "url"
                         }
                     },
@@ -679,7 +679,7 @@ if (true) {
                         "en": "Học bổng UTE đang vẫy gọi",
                         "vn": "Học bổng UTE đang vẫy gọi"
                     },
-                    "text_color": "#232526",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -720,7 +720,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/hcmute_banner.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ute_proud.png?v=2",
                             "source": "url"
                         }
                     },
@@ -750,7 +750,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
                             "source": "url"
                         }
                     },
@@ -780,7 +780,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
                             "source": "url"
                         }
                     },
@@ -860,7 +860,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png?v=2",
                             "source": "url"
                         }
                     },
@@ -915,7 +915,7 @@ if (true) {
                         ],
                         "image": {
                             "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png?v=2",
                             "source": "url"
                         }
                     },
@@ -1551,7 +1551,12 @@ if (true) {
                         "colors": [
                             "#4E342E",
                             "#8D6E63"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "☕",
@@ -1563,7 +1568,7 @@ if (true) {
                         "en": "Coffee Time!",
                         "vn": "Giờ uống cà phê!"
                     },
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -1643,7 +1648,12 @@ if (true) {
                         "colors": [
                             "#1A237E",
                             "#455A64"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎬",
@@ -1651,7 +1661,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Cinema Time!",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -1864,7 +1874,12 @@ if (true) {
                         "colors": [
                             "#1E90FF",
                             "#00D4FF"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💳",
@@ -1872,7 +1887,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "đọc số tài khoản",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -1924,7 +1939,12 @@ if (true) {
                         "colors": [
                             "#9C27B0",
                             "#E91E63"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎤",
@@ -1932,7 +1952,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "cảnh báo có hát",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -2004,7 +2024,12 @@ if (true) {
                         "colors": [
                             "#4CAF50",
                             "#00BCD4"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎮",
@@ -2012,7 +2037,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Giảm sức mạnh con tướng",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -2124,7 +2149,12 @@ if (true) {
                         "colors": [
                             "#EC407A",
                             "#F44336"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🐉",
@@ -2132,7 +2162,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "siêu cấp bá khí",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -2249,7 +2279,12 @@ if (true) {
                         "colors": [
                             "#546E7A",
                             "#263238"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🌧️",
@@ -2257,7 +2292,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Hồi chiều trời mưa...",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -2429,7 +2464,12 @@ if (true) {
                         "colors": [
                             "#141E30",
                             "#243B55"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🥀",
@@ -2437,7 +2477,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "hôm nay tôi buồn",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -2589,7 +2629,12 @@ if (true) {
                         "colors": [
                             "#455A64",
                             "#263238"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "📷",
@@ -2597,7 +2642,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Tuyệt đối điện ảnh",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -2609,7 +2654,12 @@ if (true) {
                         "colors": [
                             "#FF5722",
                             "#E64A19"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "⚡",
@@ -2617,7 +2667,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đủ bá khí chưa",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -2689,7 +2739,12 @@ if (true) {
                         "colors": [
                             "#26A69A",
                             "#00897B"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "📷",
@@ -2697,7 +2752,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Quá là điện ảnh",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             }
@@ -3024,7 +3079,12 @@ if (true) {
                         "colors": [
                             "#3F51B5",
                             "#1A237E"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🌙",
@@ -3032,7 +3092,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Ngủ ngon",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -3364,7 +3424,12 @@ if (true) {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💸",
@@ -3372,7 +3437,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Tiền đâu mà tiêu",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -3384,7 +3449,12 @@ if (true) {
                         "colors": [
                             "#0F2027",
                             "#2C5364"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "☕",
@@ -3392,7 +3462,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Cần nạp cafein gấp",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             }
@@ -3410,7 +3480,12 @@ if (true) {
                             "#0F2027",
                             "#2C5364",
                             "#D4AF37"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎬",
@@ -3435,7 +3510,12 @@ if (true) {
                             "#FF416C",
                             "#FF4B2B",
                             "#FFE600"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🔥",
@@ -3460,7 +3540,12 @@ if (true) {
                             "#F7971E",
                             "#FFD200",
                             "#FFEAA7"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💸",
@@ -3472,7 +3557,7 @@ if (true) {
                         "en": "Ting ting! +50.000.000đ",
                         "vn": "Ting ting! +50.000.000đ"
                     },
-                    "text_color": "#232526",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -3535,7 +3620,12 @@ if (true) {
                             "#141E30",
                             "#243B55",
                             "#FFD700"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🚀",
@@ -3585,7 +3675,12 @@ if (true) {
                             "#24140E",
                             "#4B2519",
                             "#8B5A2B"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "☕",
@@ -3610,7 +3705,12 @@ if (true) {
                             "#4776E6",
                             "#8E54E9",
                             "#00F2FE"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎮",
@@ -3685,7 +3785,12 @@ if (true) {
                             "#2E0854",
                             "#6A0572",
                             "#AB83A1"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🌌",
@@ -3710,7 +3815,12 @@ if (true) {
                             "#232526",
                             "#414345",
                             "#F39C12"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💳",
@@ -3735,7 +3845,12 @@ if (true) {
                             "#5F0A87",
                             "#A4508B",
                             "#FF867A"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎧",
@@ -3760,7 +3875,12 @@ if (true) {
                             "#FFB6C1",
                             "#FFA07A",
                             "#FFE4E1"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_boba_sweet.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🧋",
@@ -3772,7 +3892,7 @@ if (true) {
                         "en": "Trà sữa chữa lành tâm hồn",
                         "vn": "Trà sữa chữa lành tâm hồn"
                     },
-                    "text_color": "#4A2E2B",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -3785,7 +3905,12 @@ if (true) {
                             "#16A085",
                             "#F4D03F",
                             "#E67E22"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🛵",
@@ -3885,7 +4010,12 @@ if (true) {
                             "#2193B0",
                             "#6DD5ED",
                             "#E0F7FA"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ocean_wave.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🏖️",
@@ -3910,7 +4040,12 @@ if (true) {
                             "#4A00E0",
                             "#8E2DE2",
                             "#DA70D6"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "📈",
@@ -3935,7 +4070,12 @@ if (true) {
                             "#B24592",
                             "#F15F79",
                             "#FF9966"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_saigon_street.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🏎️",
@@ -3960,7 +4100,12 @@ if (true) {
                             "#2B1055",
                             "#7597DE",
                             "#FAD0C4"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cat_boss.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🐱",
@@ -4174,7 +4319,12 @@ if (true) {
                         "colors": [
                             "#0F2027",
                             "#2C5364"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🌌",
@@ -4182,7 +4332,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Ngủ ngon giấc mơ có em",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             }
@@ -4239,7 +4389,12 @@ if (true) {
                         "colors": [
                             "#3A7BD5",
                             "#3A6073"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🌧️",
@@ -4247,7 +4402,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Hồi chiều trời mưa",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -4499,7 +4654,12 @@ if (true) {
                         "colors": [
                             "#2193B0",
                             "#6DD5ED"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ocean_wave.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🌊",
@@ -4507,7 +4667,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Biển ơi húuuuuuu",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -4659,7 +4819,12 @@ if (true) {
                         "colors": [
                             "#2C3E50",
                             "#000000"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🥀",
@@ -4667,7 +4832,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "hôm nay tôi buồn",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -4759,7 +4924,12 @@ if (true) {
                         "colors": [
                             "#FF8008",
                             "#FFC837"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🐉",
@@ -4767,7 +4937,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "siêu cấp bá khí",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -4799,7 +4969,12 @@ if (true) {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "💳",
@@ -4807,7 +4982,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "đọc số tài khoản",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -4859,7 +5034,12 @@ if (true) {
                         "colors": [
                             "#FF512F",
                             "#DD2476"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎤",
@@ -4867,7 +5047,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "cảnh báo có hát",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
@@ -4939,7 +5119,12 @@ if (true) {
                         "colors": [
                             "#00B4DB",
                             "#0083B0"
-                        ]
+                        ],
+                        "image": {
+                            "type": "image",
+                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon.png?v=2",
+                            "source": "url"
+                        }
                     },
                     "icon": {
                         "data": "🎮",
@@ -4947,7 +5132,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Giảm sức mạnh con tướng này",
-                    "text_color": "#FFFFFFE6",
+                    "text_color": "#FFFFFF",
                     "type": "static_content"
                 }
             },
