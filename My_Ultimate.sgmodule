@@ -1,12 +1,12 @@
-#!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
-#!desc=Bản nâng cấp toàn diện cho sinh viên HCMUTE: Locket Gold 60s + Nút Mic + Chú thích HCMUTE/GenZ/Wordsmith + YouTube Maasea Mới Nhất (Sạch QC, PiP, Phát nền) + Spotify + SoundCloud + 11 App VIP
+﻿#!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
+#!desc=Báº£n nÃ¢ng cáº¥p toÃ n diá»‡n cho sinh viÃªn HCMUTE: Locket Gold 60s + NÃºt Mic + ChÃº thÃ­ch HCMUTE/GenZ/Wordsmith + YouTube Maasea Má»›i Nháº¥t (Sáº¡ch QC, PiP, PhÃ¡t ná»n) + Spotify + SoundCloud + 11 App VIP
 #!author=tkhoi8450 (HCMUTE)
 #!homepage=https://github.com/tkhoi8450/shadowrocket-scripts
 #!howtouse=Shadowrocket
 #!category=Ultimate All-In-One
 
 [Rule]
-# 1. Chặn toàn bộ QUIC / HTTP3 qua UDP Port 443 ép iOS dùng TCP HTTPS để Shadowrocket giải mã MITM
+# 1. Cháº·n toÃ n bá»™ QUIC / HTTP3 qua UDP Port 443 Ã©p iOS dÃ¹ng TCP HTTPS Ä‘á»ƒ Shadowrocket giáº£i mÃ£ MITM
 AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
 AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,api.revenuecat.com),(PROTOCOL,UDP)),REJECT
@@ -20,13 +20,13 @@ AND,((DOMAIN-SUFFIX,rc-backup.com),(PROTOCOL,UDP)),REJECT
 ^https:\/\/api\.baomoi\.com\/a465 _ reject-200
 
 [Header Rewrite]
-# 1. Xóa ETag và If-None-Match của RevenueCat
+# 1. XÃ³a ETag vÃ  If-None-Match cá»§a RevenueCat
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del x-revenuecat-etag
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del X-RevenueCat-ETag
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del if-none-match
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del If-None-Match
 
-# 2. Xóa ETag, If-None-Match và If-Modified-Since của Locket Firebase Remote Config (Chống phản hồi 304 Not Modified để luôn nạp cấu hình mới)
+# 2. XÃ³a ETag, If-None-Match vÃ  If-Modified-Since cá»§a Locket Firebase Remote Config (Chá»‘ng pháº£n há»“i 304 Not Modified Ä‘á»ƒ luÃ´n náº¡p cáº¥u hÃ¬nh má»›i)
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-none-match
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-None-Match
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del etag
@@ -34,19 +34,19 @@ http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/loc
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-modified-since
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-Modified-Since
 
-# 3. Xóa If-None-Match cho Spotify
+# 3. XÃ³a If-None-Match cho Spotify
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Script]
 # ==========================================
-# 1. Locket Gold + Quay 60s + Mic + Chú Thích HCMUTE (Kho GitHub tkhoi8450)
+# 1. Locket Gold + Quay 60s + Mic + ChÃº ThÃ­ch HCMUTE (Kho GitHub tkhoi8450)
 # ==========================================
 deleteHeader = type=http-request,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js,timeout=60
 revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js,requires-body=1,max-size=-1,timeout=60
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js,requires-body=1,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=3,requires-body=1,max-size=-1,timeout=60
 
 # ==========================================
-# 2. YouTube & YouTube Music Enhance (Lõi Maasea mới nhất - Chặn sạch QC, PiP, Phát nền, Phụ đề Tiếng Việt)
+# 2. YouTube & YouTube Music Enhance (LÃµi Maasea má»›i nháº¥t - Cháº·n sáº¡ch QC, PiP, PhÃ¡t ná»n, Phá»¥ Ä‘á» Tiáº¿ng Viá»‡t)
 # ==========================================
 youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js,argument="{\"lyricLang\":\"vi\",\"captionLang\":\"vi\",\"blockUpload\":true,\"blockImmersive\":true,\"blockShorts\":false,\"debug\":false}"
 youtube.request.init = type=http-request,pattern=^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js,argument="{\"lyricLang\":\"vi\",\"captionLang\":\"vi\"}"
@@ -60,7 +60,7 @@ spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|
 spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/spotify-proto.js,script-update-interval=0
 
 # ==========================================
-# 4. Mở khóa 11 App Chỉnh Ảnh & Tiện Ích VIP (Đã gộp vào Locket_Gold.js & loại bỏ dòng VSCO gây nghẽn)
+# 4. Má»Ÿ khÃ³a 11 App Chá»‰nh áº¢nh & Tiá»‡n Ãch VIP (ÄÃ£ gá»™p vÃ o Locket_Gold.js & loáº¡i bá» dÃ²ng VSCO gÃ¢y ngháº½n)
 # ==========================================
 AlightMotion = type=http-response,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/AlightMotion.js,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,max-size=131072,requires-body=true,timeout=10
 PicsArt = type=http-request,pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/PicsArt.js,requires-body=true,timeout=60
