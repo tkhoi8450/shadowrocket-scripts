@@ -72,7 +72,7 @@ if (true) {
                 }
             ],
             primary_button_title: "Xong",
-            campaign: "locket_gold_welcome_v6",
+            campaign: "locket_gold_welcome_v7",
             start_at: "2020-01-01T00:00:00",
             end_at: "2099-12-31T23:59:59",
             use_local_time_zone: true
@@ -137,13 +137,14 @@ if (true) {
         quality_mbps: 0.9,
         qualityMbps: 0.9
     });
-    if (cameraObj.effects_enabled === undefined) cameraObj.effects_enabled = true;
-    if (cameraObj.camera_effects_enabled === undefined) cameraObj.camera_effects_enabled = true;
-    if (cameraObj.filters_enabled === undefined) cameraObj.filters_enabled = true;
-    if (cameraObj.face_filters_enabled === undefined) cameraObj.face_filters_enabled = true;
-    if (cameraObj.lenses_enabled === undefined) cameraObj.lenses_enabled = true;
-    if (cameraObj.ar_lenses_enabled === undefined) cameraObj.ar_lenses_enabled = true;
-    if (cameraObj.snap_camera_kit_enabled === undefined) cameraObj.snap_camera_kit_enabled = true;
+    // Loại bỏ triệt để các cờ AR/CameraKit nhân tạo gây treo đơ pipeline camera của Locket
+    delete cameraObj.effects_enabled;
+    delete cameraObj.camera_effects_enabled;
+    delete cameraObj.filters_enabled;
+    delete cameraObj.face_filters_enabled;
+    delete cameraObj.lenses_enabled;
+    delete cameraObj.ar_lenses_enabled;
+    delete cameraObj.snap_camera_kit_enabled;
 
     var serverRoll = {};
     try {
@@ -167,39 +168,31 @@ if (true) {
         flash_button: true
     });
 
-    var filterConfigObj = null;
-    if (obj.entries.camera_filter_config) {
+    // Cấu hình Camera Filter an toàn tuyệt đối:
+    // Bản Locket App Store không nhúng asset 3D nội bộ (okay_wig, bowling_ball...), nếu bật sẽ gây treo đơ UI khi bấm.
+    // Thiết lập an toàn: Tắt tự động bung sheet (open_sheet_immediately: false) và tắt nút filter prototype bị lỗi
+    // để camera luôn phản hồi mượt mà 60fps, đồng thời bảo toàn tính năng Camera Theme chính thức của Locket Gold.
+    var filterConfigObj = {
+        allows_custom_filters: false,
+        show_filter_button: false,
+        sheet_enabled: false,
+        open_sheet_immediately: false,
+        sheet_filters: [],
+        picker_filters: []
+    };
+    if (serverEntriesOriginal && serverEntriesOriginal.camera_filter_config) {
         try {
-            filterConfigObj = typeof obj.entries.camera_filter_config === "string" ? JSON.parse(obj.entries.camera_filter_config) : obj.entries.camera_filter_config;
-            filterConfigObj.allows_custom_filters = true;
-            filterConfigObj.show_filter_button = true;
-            filterConfigObj.sheet_enabled = true;
+            var sc = typeof serverEntriesOriginal.camera_filter_config === "string" ? JSON.parse(serverEntriesOriginal.camera_filter_config) : serverEntriesOriginal.camera_filter_config;
+            if (sc && Array.isArray(sc.sheet_filters) && sc.sheet_filters.length > 0) {
+                var isLegacyBuggy = sc.sheet_filters.some(function(sf) {
+                    return Array.isArray(sf.filter_ids) && sf.filter_ids.includes("okay_wig");
+                });
+                if (!isLegacyBuggy) {
+                    filterConfigObj = sc;
+                    filterConfigObj.open_sheet_immediately = false;
+                }
+            }
         } catch (e) {}
-    }
-    if (!filterConfigObj) {
-        filterConfigObj = {
-            allows_custom_filters: true,
-            show_filter_button: true,
-            sheet_enabled: true,
-            open_sheet_immediately: true,
-            sheet_filters: [
-                { title: { en: "Goofy" }, filter_ids: ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"] },
-                { title: { en: "Looks" }, filter_ids: ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"] },
-                { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
-                { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
-                { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] },
-                { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] }
-            ],
-            picker_filters: [
-                "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
-                "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns",
-                "tatted", "mohawk", "braces", "slimed", "princess",
-                "disco_lights", "cash_money", "happy_birthday", "cutesy", "sticker_face",
-                "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
-                "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
-                "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"
-            ]
-        };
     }
 
     Object.assign(obj.entries, {
@@ -5245,7 +5238,7 @@ if (true) {
 
     // Ép Firebase SDK trên iOS nhận diện bản cập nhật cấu hình mới ngay lập tức
     obj.state = "UPDATE";
-    obj.etag = "v6_" + Date.now();
+    obj.etag = "v7_" + Date.now();
 }
 
 var fbHeaders = {};
