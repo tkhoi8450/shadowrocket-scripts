@@ -51,6 +51,15 @@ function makeEnt(productId) {
 obj.subscriber = obj.subscriber || {};
 obj.subscriber.subscriptions = obj.subscriber.subscriptions || {};
 obj.subscriber.entitlements = obj.subscriber.entitlements || {};
+obj.subscriber.non_subscriptions = obj.subscriber.non_subscriptions || {};
+obj.subscriber.other_purchases = obj.subscriber.other_purchases || {};
+
+// Đảm bảo không có subscription nào bị gắn is_sandbox: true khiến tính năng Filter/Looks từ chối tải
+for (var subKey in obj.subscriber.subscriptions) {
+    if (obj.subscriber.subscriptions[subKey] && typeof obj.subscriber.subscriptions[subKey] === "object") {
+        obj.subscriber.subscriptions[subKey].is_sandbox = false;
+    }
+}
 
 // TRƯỜNG HỢP 1: Locket
 if (ua.toLowerCase().includes("locket")) {

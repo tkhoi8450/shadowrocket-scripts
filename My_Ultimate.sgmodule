@@ -1,4 +1,4 @@
-﻿#!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
+#!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
 #!desc=Báº£n nÃ¢ng cáº¥p toÃ n diá»‡n cho sinh viÃªn HCMUTE: Locket Gold 60s + NÃºt Mic + ChÃº thÃ­ch HCMUTE/GenZ/Wordsmith + YouTube Maasea Má»›i Nháº¥t (Sáº¡ch QC, PiP, PhÃ¡t ná»n) + Spotify + SoundCloud + 11 App VIP
 #!author=tkhoi8450 (HCMUTE)
 #!homepage=https://github.com/tkhoi8450/shadowrocket-scripts
@@ -12,8 +12,13 @@ dns-server = 1.1.1.1, 8.8.8.8
 doh-server = https://cloudflare-dns.com/dns-query
 
 [Rule]
-# 1. Chặn toàn bộ QUIC / HTTP3 qua UDP Port 443 & các domain media ép qua TCP HTTPS để MITM ổn định trên 4G
-AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+# 1. Đi thẳng (DIRECT) không qua MITM cho các máy chủ tài nguyên AR Lens / Camera Kit / CDN
+DOMAIN-SUFFIX,locketcamera.com,DIRECT
+DOMAIN-SUFFIX,sc-cdn.net,DIRECT
+DOMAIN-SUFFIX,snapchat.com,DIRECT
+DOMAIN-SUFFIX,firebasestorage.googleapis.com,DIRECT
+
+# 2. Chặn UDP các domain cần MITM để ép dùng TCP HTTPS ổn định trên 4G
 AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(PROTOCOL,UDP)),REJECT-NO-DROP
@@ -47,8 +52,8 @@ http-request ^https://(spclient.wg.spotify.com|.*-spclient.spotify.com(:443)?)/u
 # 1. Locket Gold + Quay 60s + Mic + ChÃº ThÃ­ch HCMUTE (Kho GitHub tkhoi8450)
 # ==========================================
 deleteHeader = type=http-request,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js,timeout=60,script-update-interval=-1
-revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js,requires-body=1,max-size=-1,timeout=60,script-update-interval=-1
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=4,requires-body=1,max-size=-1,timeout=60,script-update-interval=-1
+revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js?v=5,requires-body=1,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=5,requires-body=1,max-size=-1,timeout=60
 
 # ==========================================
 # 2. YouTube & YouTube Music Enhance (LÃµi Maasea má»›i nháº¥t - Cháº·n sáº¡ch QC, PiP, PhÃ¡t ná»n, Phá»¥ Ä‘á» Tiáº¿ng Viá»‡t)
