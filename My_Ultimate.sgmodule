@@ -51,9 +51,9 @@ http-request ^https://(spclient.wg.spotify.com|.*-spclient.spotify.com(:443)?)/u
 # ==========================================
 # 1. Locket Gold + Quay 60s + Mic + ChÃº ThÃ­ch HCMUTE (Kho GitHub tkhoi8450)
 # ==========================================
-deleteHeader = type=http-request,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js,timeout=60,script-update-interval=-1
-revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js?v=5,requires-body=1,max-size=-1,timeout=60
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=5,requires-body=1,max-size=-1,timeout=60
+deleteHeader = type=http-request,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js,timeout=60
+revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js?v=6,requires-body=1,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=6,requires-body=1,max-size=-1,timeout=60
 
 # ==========================================
 # 2. YouTube & YouTube Music Enhance (LÃµi Maasea má»›i nháº¥t - Cháº·n sáº¡ch QC, PiP, PhÃ¡t ná»n, Phá»¥ Ä‘á» Tiáº¿ng Viá»‡t)
