@@ -4983,6 +4983,7 @@ if (true) {
 
     // Ép Firebase SDK trên iOS nhận diện bản cập nhật cấu hình mới ngay lập tức
     obj.state = "UPDATE";
+    obj.templateVersion = "999999999";
 }
 
 var fbHeaders = {};
@@ -4996,7 +4997,16 @@ try {
     delete fbHeaders["etag"];
 } catch (e) {}
 
-$done({
+var doneObj = {
     headers: fbHeaders,
     body: JSON.stringify(obj)
-});
+};
+
+// Đảm bảo nếu server trả 304 thì ép sang HTTP 200 OK để SDK nạp dữ liệu
+try {
+    if ($response && ($response.status === 304 || $response.status === "304")) {
+        doneObj.status = 200;
+    }
+} catch (e) {}
+
+$done(doneObj);

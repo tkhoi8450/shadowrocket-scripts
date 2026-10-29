@@ -9,7 +9,7 @@
 # 1. Chặn UDP 5 domain MITM để ép dùng TCP HTTPS ổn định trên 4G
 AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT-NO-DROP
-AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(PROTOCOL,UDP)),REJECT-NO-DROP
+AND,((DOMAIN-SUFFIX,googleapis.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN-SUFFIX,revenuecat.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN-SUFFIX,rc-backup.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 
@@ -38,9 +38,9 @@ http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:4
 # ==========================================
 # 1. Locket Gold + Quay 60s + Mic + Chú Thích HCMUTE (Kho GitHub tkhoi8450)
 # ==========================================
-deleteHeader = type=http-request,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js,timeout=60
-revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js,requires-body=1,max-size=-1,timeout=60
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js,requires-body=1,max-size=-1,timeout=60
+deleteHeader = type=http-request,pattern=^https?:\/\/((api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers)|firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js?v=9,requires-body=true,max-size=-1,timeout=60,script-update-interval=-1
+revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js?v=9,requires-body=true,max-size=-1,timeout=60,script-update-interval=-1
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=9,requires-body=true,max-size=-1,timeout=60,script-update-interval=-1
 
 # ==========================================
 # 2. YouTube & YouTube Music Enhance (Lõi Maasea mới nhất - Chặn sạch QC, PiP, Phát nền, Phụ đề Tiếng Việt)
