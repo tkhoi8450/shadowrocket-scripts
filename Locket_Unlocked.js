@@ -21,7 +21,6 @@ try {
 // Luôn thực thi mở khóa 60s, Mic & Chú thích vì endpoint locket-4252a dành riêng cho Locket
 if (true) {
     obj.Attention = "💛 Locket Gold Ultimate - HCMUTE Edition";
-    var serverEntriesOriginal = (obj && obj.entries) ? Object.assign({}, obj.entries) : {};
     obj.entries = obj.entries || {};
 
     // ============================================================
@@ -68,11 +67,11 @@ if (true) {
                 {
                     title: "Chào mừng bạn đến với Locket Gold ✨",
                     body: "Chúc bạn có những trải nghiệm tuyệt vời cùng Locket Gold 💛",
-                    imageURL: "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/locket_gold.png?v=2"
+                    imageURL: "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/locket_gold.png"
                 }
             ],
             primary_button_title: "Xong",
-            campaign: "locket_gold_welcome_v7",
+            campaign: "locket_gold_welcome_v8",
             start_at: "2020-01-01T00:00:00",
             end_at: "2099-12-31T23:59:59",
             use_local_time_zone: true
@@ -106,105 +105,68 @@ if (true) {
     });
 
     // ============================================================
-    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY (Non-Destructive Merge)
+    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY
     // ============================================================
-    var serverCamera = {};
-    try {
-        if (obj.entries.camera) {
-            serverCamera = typeof obj.entries.camera === "string" ? JSON.parse(obj.entries.camera) : (obj.entries.camera || {});
-        }
-    } catch (e) { serverCamera = {}; }
-
-    var cameraObj = Object.assign({}, serverCamera, {
-        gold_max_duration: 60.0,
-        goldMaxDuration: 60.0,
-        video_max_duration: 60.0,
-        videoMaxDuration: 60.0,
-        max_duration: 60.0,
-        maxDuration: 60.0,
-        trim_max_duration: 60.0,
-        trimMaxDuration: 60.0,
-        microphone_enabled: true,
-        camera_microphone_enabled: true,
-        ultra_wide: true,
-        ultraWide: true,
-        volume_button: true,
-        volumeButton: true,
-        flash_button: true,
-        telephoto: true,
-        srgb: true,
-        lanczos: true,
-        quality_mbps: 0.9,
-        qualityMbps: 0.9
-    });
-    // Loại bỏ triệt để các cờ AR/CameraKit nhân tạo gây treo đơ pipeline camera của Locket
-    delete cameraObj.effects_enabled;
-    delete cameraObj.camera_effects_enabled;
-    delete cameraObj.filters_enabled;
-    delete cameraObj.face_filters_enabled;
-    delete cameraObj.lenses_enabled;
-    delete cameraObj.ar_lenses_enabled;
-    delete cameraObj.snap_camera_kit_enabled;
-
-    var serverRoll = {};
-    try {
-        if (obj.entries.camera_roll) {
-            serverRoll = typeof obj.entries.camera_roll === "string" ? JSON.parse(obj.entries.camera_roll) : (obj.entries.camera_roll || {});
-        }
-    } catch (e) { serverRoll = {}; }
-
-    var rollObj = Object.assign({}, serverRoll, {
-        gold_max_duration: 60.0,
-        goldMaxDuration: 60.0,
-        video_max_duration: 60.0,
-        videoMaxDuration: 60.0,
-        max_duration: 60.0,
-        maxDuration: 60.0,
-        trim_max_duration: 60.0,
-        trimMaxDuration: 60.0,
-        camera_roll_max_duration: 60.0,
-        quality_mbps: 0.9,
-        qualityMbps: 0.9,
-        flash_button: true
-    });
-
-    // Cấu hình Camera Filter an toàn tuyệt đối:
-    // Bản Locket App Store không nhúng asset 3D nội bộ (okay_wig, bowling_ball...), nếu bật sẽ gây treo đơ UI khi bấm.
-    // Thiết lập an toàn: Tắt tự động bung sheet (open_sheet_immediately: false) và tắt nút filter prototype bị lỗi
-    // để camera luôn phản hồi mượt mà 60fps, đồng thời bảo toàn tính năng Camera Theme chính thức của Locket Gold.
-    var filterConfigObj = {
-        allows_custom_filters: false,
-        show_filter_button: false,
-        sheet_enabled: false,
-        open_sheet_immediately: false,
-        sheet_filters: [],
-        picker_filters: []
-    };
-    if (serverEntriesOriginal && serverEntriesOriginal.camera_filter_config) {
-        try {
-            var sc = typeof serverEntriesOriginal.camera_filter_config === "string" ? JSON.parse(serverEntriesOriginal.camera_filter_config) : serverEntriesOriginal.camera_filter_config;
-            if (sc && Array.isArray(sc.sheet_filters) && sc.sheet_filters.length > 0) {
-                var isLegacyBuggy = sc.sheet_filters.some(function(sf) {
-                    return Array.isArray(sf.filter_ids) && sf.filter_ids.includes("okay_wig");
-                });
-                if (!isLegacyBuggy) {
-                    filterConfigObj = sc;
-                    filterConfigObj.open_sheet_immediately = false;
-                }
-            }
-        } catch (e) {}
-    }
-
     Object.assign(obj.entries, {
-        camera: JSON.stringify(cameraObj),
-        camera_roll: JSON.stringify(rollObj),
+        camera: JSON.stringify({
+            gold_max_duration: 60.0,
+            goldMaxDuration: 60.0,
+            max_duration: 60.0,
+            maxDuration: 60.0,
+            ultra_wide: true,
+            ultraWide: true,
+            volume_button: true,
+            volumeButton: true,
+            flash_button: true,
+            telephoto: true,
+            srgb: true,
+            lanczos: true,
+            quality_mbps: 0.9,
+            qualityMbps: 0.9
+        }),
+        camera_roll: JSON.stringify({
+            gold_max_duration: 60.0,
+            goldMaxDuration: 60.0,
+            video_max_duration: 60.0,
+            videoMaxDuration: 60.0,
+            max_duration: 60.0,
+            maxDuration: 60.0,
+            trim_max_duration: 60.0,
+            trimMaxDuration: 60.0,
+            camera_roll_max_duration: 60.0,
+            quality_mbps: 0.9,
+            qualityMbps: 0.9,
+            flash_button: true
+        }),
         live_photos: JSON.stringify({
             capture: true,
             viewing: true,
             catch_up: true,
             widget_looping_mode: "never"
         }),
-        camera_filter_config: JSON.stringify(filterConfigObj),
+        camera_filter_config: JSON.stringify({
+            allows_custom_filters: true,
+            show_filter_button: true,
+            sheet_enabled: true,
+            open_sheet_immediately: true,
+            sheet_filters: [
+                { title: { en: "Goofy" }, filter_ids: ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"] },
+                { title: { en: "Looks" }, filter_ids: ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"] },
+                { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
+                { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
+                { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] },
+                { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] }
+            ],
+            picker_filters: [
+                "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
+                "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns",
+                "tatted", "mohawk", "braces", "slimed", "princess",
+                "disco_lights", "cash_money", "happy_birthday", "cutesy", "sticker_face",
+                "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
+                "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
+                "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"
+            ]
+        }),
         camera_roll_preview_enabled: "true",
         camera_roll_video_enabled: "true",
         camera_roll_video_upload_enabled: "true",
@@ -368,7 +330,9 @@ if (true) {
     // 7. HỆ THỐNG, CACHE & STORAGE CDN
     // ============================================================
     Object.assign(obj.entries, {
-        cdn_domain_replacements: JSON.stringify({}),
+        cdn_domain_replacements: JSON.stringify({
+            "firebasestorage.googleapis.com": "cdn.locketcamera.com"
+        }),
         cdn_domain_replacements_video: "true",
         storage_bucket: "gs://locket-img",
         storage_bucket_video: "gs://locket-video",
@@ -420,7 +384,8 @@ if (true) {
             "weather", "time", "streak", "star_sign", "party_time", "locket_count",
             "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026"
         ]),
-        overlay_items: JSON.stringify([
+        overlay_items: JSON.stringify(
+[
     {
         "section": "🎓 Sinh Viên HCMUTE ⚙️",
         "items": [
@@ -990,77 +955,77 @@ if (true) {
         "section": "🎨 General",
         "items": [
             {
-                "overlay_id": "caption:standard_v4",
+                "overlay_id": "caption:standard",
                 "source": "local",
                 "caption": {
                     "type": "standard"
                 }
             },
             {
-                "overlay_id": "caption:review_v4",
+                "overlay_id": "caption:review",
                 "source": "local",
                 "caption": {
                     "type": "review"
                 }
             },
             {
-                "overlay_id": "caption:music_v4",
+                "overlay_id": "caption:music",
                 "source": "local",
                 "caption": {
                     "type": "music"
                 }
             },
             {
-                "overlay_id": "caption:location_v4",
+                "overlay_id": "caption:location",
                 "source": "local",
                 "caption": {
                     "type": "location"
                 }
             },
             {
-                "overlay_id": "caption:weather_v4",
+                "overlay_id": "caption:weather",
                 "source": "local",
                 "caption": {
                     "type": "weather"
                 }
             },
             {
-                "overlay_id": "caption:time_v4",
+                "overlay_id": "caption:time",
                 "source": "local",
                 "caption": {
                     "type": "time"
                 }
             },
             {
-                "overlay_id": "caption:streak_v4",
+                "overlay_id": "caption:streak",
                 "source": "local",
                 "caption": {
                     "type": "streak"
                 }
             },
             {
-                "overlay_id": "caption:star_sign_v4",
+                "overlay_id": "caption:star_sign",
                 "source": "local",
                 "caption": {
                     "type": "star_sign"
                 }
             },
             {
-                "overlay_id": "caption:poll_v4",
+                "overlay_id": "caption:poll",
                 "source": "local",
                 "caption": {
                     "type": "poll"
                 }
             },
             {
-                "overlay_id": "caption:color_palette_v4",
+                "overlay_id": "caption:color_palette",
                 "source": "local",
                 "caption": {
                     "type": "color_palette"
                 }
             },
             {
-                "overlay_id": "caption:locket_count_v4",
+                "overlay_id": "caption:locket_count",
                 "source": "local",
                 "caption": {
                     "type": "locket_count"
@@ -1072,7 +1037,7 @@ if (true) {
         "section": "🎨 Holiday Caption",
         "items": [
             {
-                "overlay_id": "caption:halloween_2026_v4",
+                "overlay_id": "caption:halloween_2026",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1096,7 +1061,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:autumn_2026_v4",
+                "overlay_id": "caption:autumn_2026",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1120,7 +1085,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:christmas_eve_2026_v4",
+                "overlay_id": "caption:christmas_eve_2026",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1144,7 +1109,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:christmas_day_2026_v4",
+                "overlay_id": "caption:christmas_day_2026",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1168,7 +1133,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:new_years_eve_2026_v4",
+                "overlay_id": "caption:new_years_eve_2026",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1192,7 +1157,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:new_years_day_2027_v4",
+                "overlay_id": "caption:new_years_day_2027",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1216,7 +1181,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:new_years_day_2027_alternate_v4",
+                "overlay_id": "caption:new_years_day_2027_alternate",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1237,7 +1202,7 @@ if (true) {
         "section": "🎨 Decorative by Locket",
         "items": [
             {
-                "overlay_id": "caption:toi_nho_em_v4",
+                "overlay_id": "caption:toi_nho_em",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1253,7 +1218,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:party_time_v4",
+                "overlay_id": "caption:party_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1273,7 +1238,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:good_morning_v4",
+                "overlay_id": "caption:good_morning",
                 "source": "remote",
                 "daily_start_hour": 5,
                 "daily_end_hour": 10,
@@ -1295,7 +1260,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:goodnight_v4",
+                "overlay_id": "caption:goodnight",
                 "source": "remote",
                 "daily_start_hour": 19.5,
                 "daily_end_hour": 24,
@@ -1317,7 +1282,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ootd_v4",
+                "overlay_id": "caption:ootd",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1337,7 +1302,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:miss_you_v4",
+                "overlay_id": "caption:miss_you",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1362,109 +1327,7 @@ if (true) {
         "section": "🎨 Locket Gold Ultimate",
         "items": [
             {
-                "overlay_id": "caption:love_vietnam_v4",
-                "source": "remote",
-                "alt_text": "Tôi yêu Việt Nam",
-                "caption": {
-                    "background": {
-                        "image": {
-                            "type": "image",
-                            "data": "star_sign_background",
-                            "source": "local"
-                        },
-                        "colors": [
-                            "#DA251D",
-                            "#DA251D"
-                        ]
-                    },
-                    "icon": {
-                        "type": "image",
-                        "data": "https://storage.googleapis.com/locket-public/journal_calendar_assets/holiday_indicators/valentines_indicator%403x.png",
-                        "source": "url"
-                    },
-                    "max_lines": 1,
-                    "text": "Tôi yêu Việt Nam",
-                    "text_color": "#FFFF00",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "caption:film_diary_v4",
-                "source": "remote",
-                "alt_text": "Một ngày rất chill",
-                "caption": {
-                    "background": {
-                        "image": {
-                            "type": "image",
-                            "data": "https://public.locketcamera.com/locket-public/gold_promos/gold_promo_camera_roll.png",
-                            "source": "url"
-                        },
-                        "colors": [
-                            "#D2B48C",
-                            "#8B4513"
-                        ]
-                    },
-                    "icon": {
-                        "type": "image",
-                        "data": "https://public.locketcamera.com/locket-public/journal_calendar_assets/holiday_indicators/st_patricks_indicator%403x.png",
-                        "source": "url"
-                    },
-                    "max_lines": 1,
-                    "text": "Một ngày rất chill",
-                    "text_color": "#FFFDD0",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "caption:genz_flex_v4",
-                "source": "remote",
-                "alt_text": "Mood: Chill",
-                "caption": {
-                    "background": {
-                        "image": {
-                            "type": "image",
-                            "data": "https://public.locketcamera.com/locket-public/gold_promos/gold_promo_widgets.png",
-                            "source": "url"
-                        },
-                        "colors": [
-                            "#FF9A9E",
-                            "#FECFEF"
-                        ]
-                    },
-                    "icon": {
-                        "data": "camera.fill",
-                        "type": "sf_symbol",
-                        "color": "#FF007F"
-                    },
-                    "max_lines": 1,
-                    "text": "Mood: Chill 💅",
-                    "text_color": "#FFFFFF",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "caption:no_memory_v4",
-                "source": "remote",
-                "caption": {
-                    "background": {
-                        "image": {
-                            "type": "image",
-                            "data": "https://public.locketcamera.com/locket-public/overlays/forgotten_island/forgotten_island_bg.png",
-                            "source": "url"
-                        },
-                        "colors": [
-                            "#1A1A2E",
-                            "#16213E"
-                        ]
-                    },
-                    "max_lines": 1,
-                    "text": "NO MEMORY LEFT BEHIND",
-                    "text_color": "#FFFFFFE6",
-                    "type": "static_content"
-                }
-            },
-            {
-                "overlay_id": "caption:locket_gold_ultimate_v4",
+                "overlay_id": "caption:locket_gold_ultimate",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1481,7 +1344,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:feeling_cute_v4",
+                "overlay_id": "caption:feeling_cute",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1505,7 +1368,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:cu_v4",
+                "overlay_id": "caption:cu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1522,7 +1385,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:wedding_time_v4",
+                "overlay_id": "caption:wedding_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1546,7 +1409,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:cam_thay_hanh_phuc_v4",
+                "overlay_id": "caption:cam_thay_hanh_phuc",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1570,19 +1433,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:coffee_time_v4",
+                "overlay_id": "caption:coffee_time",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#4E342E",
                             "#8D6E63"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "☕",
@@ -1594,12 +1452,12 @@ if (true) {
                         "en": "Coffee Time!",
                         "vn": "Giờ uống cà phê!"
                     },
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:snake_vibes_v4",
+                "overlay_id": "caption:snake_vibes",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1623,7 +1481,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:mixue_time_v4",
+                "overlay_id": "caption:mixue_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1647,7 +1505,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:locket_time_v4",
+                "overlay_id": "caption:locket_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1667,19 +1525,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:cinema_time_v4",
+                "overlay_id": "caption:cinema_time",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#1A237E",
                             "#455A64"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🎬",
@@ -1687,12 +1540,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Cinema Time!",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:dating_time_v4",
+                "overlay_id": "caption:dating_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1712,7 +1565,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:graduation_day_v4",
+                "overlay_id": "caption:graduation_day",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1736,7 +1589,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:shopping_time_v4",
+                "overlay_id": "caption:shopping_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1760,7 +1613,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:dinner_time_v4",
+                "overlay_id": "caption:dinner_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1784,7 +1637,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:chilling_time_v4",
+                "overlay_id": "caption:chilling_time",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1813,7 +1666,7 @@ if (true) {
         "section": "🌸 Độc lạ",
         "items": [
             {
-                "overlay_id": "caption:xin_vinh_biet_cu_v4",
+                "overlay_id": "caption:xin_vinh_biet_cu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1833,7 +1686,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:chay_ngay_di_v4",
+                "overlay_id": "caption:chay_ngay_di",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1853,7 +1706,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:cu_tu_tu_khoai_se_nhu_v4",
+                "overlay_id": "caption:cu_tu_tu_khoai_se_nhu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1873,7 +1726,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:kiem_tra_nhan_pham_v4",
+                "overlay_id": "caption:kiem_tra_nhan_pham",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1893,19 +1746,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:doc_so_tai_khoan_v4",
+                "overlay_id": "caption:doc_so_tai_khoan",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#1E90FF",
                             "#00D4FF"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "💳",
@@ -1913,12 +1761,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "đọc số tài khoản",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ai_so_thi_di_ve_v4",
+                "overlay_id": "caption:ai_so_thi_di_ve",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1938,7 +1786,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:con_cai_nit_v4",
+                "overlay_id": "caption:con_cai_nit",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -1958,19 +1806,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:canh_bao_co_hat_v4",
+                "overlay_id": "caption:canh_bao_co_hat",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#9C27B0",
                             "#E91E63"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🎤",
@@ -1978,12 +1821,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "cảnh báo có hát",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:than_chua_ma_don_v4",
+                "overlay_id": "caption:than_chua_ma_don",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2003,7 +1846,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ai_muon_v4",
+                "overlay_id": "caption:ai_muon",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2023,7 +1866,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:hay_ra_de_qua_a_v4",
+                "overlay_id": "caption:hay_ra_de_qua_a",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2043,19 +1886,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:giam_suc_manh_con_tuong_v4",
+                "overlay_id": "caption:giam_suc_manh_con_tuong",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#4CAF50",
                             "#00BCD4"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🎮",
@@ -2063,12 +1901,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Giảm sức mạnh con tướng",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:mac_co_qua_hai_oi_v4",
+                "overlay_id": "caption:mac_co_qua_hai_oi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2088,7 +1926,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:minh_la_lop_v4",
+                "overlay_id": "caption:minh_la_lop",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2108,7 +1946,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:dep_trai_co_gi_sai_v4",
+                "overlay_id": "caption:dep_trai_co_gi_sai",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2128,7 +1966,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:mong_ton_hoa_sen_v4",
+                "overlay_id": "caption:mong_ton_hoa_sen",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2148,7 +1986,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:dam_nhau_khong_v4",
+                "overlay_id": "caption:dam_nhau_khong",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2168,19 +2006,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:sieu_cap_ba_khi_v4",
+                "overlay_id": "caption:sieu_cap_ba_khi",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#EC407A",
                             "#F44336"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🐉",
@@ -2188,12 +2021,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "siêu cấp bá khí",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:du_an_ma_v4",
+                "overlay_id": "caption:du_an_ma",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2213,7 +2046,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:doi_roi_v4",
+                "overlay_id": "caption:doi_roi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2233,7 +2066,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:dang_ban_tuong_tu_v4",
+                "overlay_id": "caption:dang_ban_tuong_tu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2253,7 +2086,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:mo_hon_nhung_tam_hien_v4",
+                "overlay_id": "caption:mo_hon_nhung_tam_hien",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2273,7 +2106,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:muon_duoc_om_v4",
+                "overlay_id": "caption:muon_duoc_om",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2298,19 +2131,14 @@ if (true) {
         "section": "🌸 Trend TikTok",
         "items": [
             {
-                "overlay_id": "caption:hoi_chieu_troi_mua_v4",
+                "overlay_id": "caption:hoi_chieu_troi_mua",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#546E7A",
                             "#263238"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🌧️",
@@ -2318,12 +2146,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Hồi chiều trời mưa...",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:con_vien_la_lan_v4",
+                "overlay_id": "caption:con_vien_la_lan",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2343,7 +2171,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:tuyet_doi_khong_nghe_v4",
+                "overlay_id": "caption:tuyet_doi_khong_nghe",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2363,7 +2191,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:flex_den_hoi_tho_cuoi_v4",
+                "overlay_id": "caption:flex_den_hoi_tho_cuoi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2383,7 +2211,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:overthinking_vai_chuong_v4",
+                "overlay_id": "caption:overthinking_vai_chuong",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2403,7 +2231,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:chan_bo_may_di_v4",
+                "overlay_id": "caption:chan_bo_may_di",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2423,7 +2251,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:oach_xa_lach_v4",
+                "overlay_id": "caption:oach_xa_lach",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2443,7 +2271,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ua_alo_v4",
+                "overlay_id": "caption:ua_alo",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2463,7 +2291,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ke_chuyen_nghe_choi_v4",
+                "overlay_id": "caption:ke_chuyen_nghe_choi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2483,19 +2311,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:hom_nay_toi_buon_v4",
+                "overlay_id": "caption:hom_nay_toi_buon",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#141E30",
                             "#243B55"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🥀",
@@ -2503,12 +2326,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "hôm nay tôi buồn",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:xinh_dep_tuyet_voi_v4",
+                "overlay_id": "caption:xinh_dep_tuyet_voi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2528,7 +2351,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:tram_cam_nhe_v4",
+                "overlay_id": "caption:tram_cam_nhe",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2548,7 +2371,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:chua_du_wow_v4",
+                "overlay_id": "caption:chua_du_wow",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2568,7 +2391,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:boc_trung_sit_rit_v4",
+                "overlay_id": "caption:boc_trung_sit_rit",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2588,7 +2411,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:hen_lam_moi_xui_duoc_vay_a_v4",
+                "overlay_id": "caption:hen_lam_moi_xui_duoc_vay_a",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2608,7 +2431,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ra_duong_ne_moi_anh_v4",
+                "overlay_id": "caption:ra_duong_ne_moi_anh",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2628,7 +2451,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:cung_cung_di_v4",
+                "overlay_id": "caption:cung_cung_di",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2648,19 +2471,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:tuyet_doi_dien_anh_v4",
+                "overlay_id": "caption:tuyet_doi_dien_anh",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#455A64",
                             "#263238"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "📷",
@@ -2668,24 +2486,19 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Tuyệt đối điện ảnh",
-                    "text_color": "#F4E285",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:du_ba_khi_chua_v4",
+                "overlay_id": "caption:du_ba_khi_chua",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#FF5722",
                             "#E64A19"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "⚡",
@@ -2693,12 +2506,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Đủ bá khí chưa",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ua_alo_v4",
+                "overlay_id": "caption:ua_alo",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2718,7 +2531,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:cai_gi_vay_troi_v4",
+                "overlay_id": "caption:cai_gi_vay_troi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2738,7 +2551,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:nay_la_het_cuu_v4",
+                "overlay_id": "caption:nay_la_het_cuu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2758,19 +2571,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:qua_la_dien_anh_v4",
+                "overlay_id": "caption:qua_la_dien_anh",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#26A69A",
                             "#00897B"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_cinema_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "📷",
@@ -2778,7 +2586,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Quá là điện ảnh",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             }
@@ -2788,7 +2596,7 @@ if (true) {
         "section": "Gen Z Life 🩻",
         "items": [
             {
-                "overlay_id": "caption:hao_han_v4",
+                "overlay_id": "caption:hao_han",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2808,7 +2616,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:cam_lanh_v4",
+                "overlay_id": "caption:cam_lanh",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2828,7 +2636,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:bat_luc_v4",
+                "overlay_id": "caption:bat_luc",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2848,7 +2656,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:xin_lui_duoc_chua_v4",
+                "overlay_id": "caption:xin_lui_duoc_chua",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2868,7 +2676,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:rot_nuoc_mat_v4",
+                "overlay_id": "caption:rot_nuoc_mat",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2888,7 +2696,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:guc_nga_v4",
+                "overlay_id": "caption:guc_nga",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2908,7 +2716,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:tien_dinh_v4",
+                "overlay_id": "caption:tien_dinh",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2928,7 +2736,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:che_manh_v4",
+                "overlay_id": "caption:che_manh",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2948,7 +2756,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:xinh_gai_an_phim_1_v4",
+                "overlay_id": "caption:xinh_gai_an_phim_1",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2968,7 +2776,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:di_lam_vi_dam_me_v4",
+                "overlay_id": "caption:di_lam_vi_dam_me",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -2993,7 +2801,7 @@ if (true) {
         "section": "🌸 Meme vui nhộn",
         "items": [
             {
-                "overlay_id": "caption:cuoi_xiu_v4",
+                "overlay_id": "caption:cuoi_xiu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3013,7 +2821,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:toang_that_roi_v4",
+                "overlay_id": "caption:toang_that_roi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3033,7 +2841,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:toi_roi_toi_roi_v4",
+                "overlay_id": "caption:toi_roi_toi_roi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3053,7 +2861,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:khong_the_tin_noi_v4",
+                "overlay_id": "caption:khong_the_tin_noi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3078,7 +2886,7 @@ if (true) {
         "section": "🌸 Đời sống",
         "items": [
             {
-                "overlay_id": "caption:ngay_moi_vui_ve_v4",
+                "overlay_id": "caption:ngay_moi_vui_ve",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3098,19 +2906,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ngu_ngon_v4",
+                "overlay_id": "caption:ngu_ngon",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#3F51B5",
                             "#1A237E"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🌙",
@@ -3118,12 +2921,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Ngủ ngon",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:an_com_chua_v4",
+                "overlay_id": "caption:an_com_chua",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3143,7 +2946,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:di_choi_khong_v4",
+                "overlay_id": "caption:di_choi_khong",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3168,7 +2971,7 @@ if (true) {
         "section": "🌸 Gen Z Slay",
         "items": [
             {
-                "overlay_id": "caption:tinh_hoa_hoi_tu_v4",
+                "overlay_id": "caption:tinh_hoa_hoi_tu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3188,7 +2991,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:phu_tinh_khong_phu_ban_v4",
+                "overlay_id": "caption:phu_tinh_khong_phu_ban",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3208,7 +3011,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ngoan_xinh_yeu_v4",
+                "overlay_id": "caption:ngoan_xinh_yeu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3228,7 +3031,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:nhin_la_biet_uy_tin_v4",
+                "overlay_id": "caption:nhin_la_biet_uy_tin",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3253,7 +3056,7 @@ if (true) {
         "section": "🌸 Bất ổn & Khó đỡ",
         "items": [
             {
-                "overlay_id": "caption:luon_vui_tuoi_v4",
+                "overlay_id": "caption:luon_vui_tuoi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3273,7 +3076,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:bat_on_that_su_v4",
+                "overlay_id": "caption:bat_on_that_su",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3293,7 +3096,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:khong_cam_xuc_v4",
+                "overlay_id": "caption:khong_cam_xuc",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3313,7 +3116,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:phu_huynh_dung_xem_v4",
+                "overlay_id": "caption:phu_huynh_dung_xem",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3338,7 +3141,7 @@ if (true) {
         "section": "🌸 Check VAR & Hóng hớt",
         "items": [
             {
-                "overlay_id": "caption:check_var_v4",
+                "overlay_id": "caption:check_var",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3358,7 +3161,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:qua_nhieu_su_de_thuong_v4",
+                "overlay_id": "caption:qua_nhieu_su_de_thuong",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3378,7 +3181,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:mac_bay_tinh_yeu_v4",
+                "overlay_id": "caption:mac_bay_tinh_yeu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3398,7 +3201,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:song_gio_phu_doi_trai_v4",
+                "overlay_id": "caption:song_gio_phu_doi_trai",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3423,7 +3226,7 @@ if (true) {
         "section": "🌸 Góc Deadline & Đi Làm",
         "items": [
             {
-                "overlay_id": "caption:deadline_ruot_v4",
+                "overlay_id": "caption:deadline_ruot",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -3443,19 +3246,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:tien_dau_ma_tieu_v4",
+                "overlay_id": "caption:tien_dau_ma_tieu",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "💸",
@@ -3463,24 +3261,19 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Tiền đâu mà tiêu",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:nghien_cuu_khoa_hoc_v4",
+                "overlay_id": "caption:nghien_cuu_khoa_hoc",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#0F2027",
                             "#2C5364"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_coffee_chill_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "☕",
@@ -3488,7 +3281,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Cần nạp cafein gấp",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             }
@@ -4178,7 +3971,7 @@ if (true) {
         "section": "In Love 💘",
         "items": [
             {
-                "overlay_id": "caption:love_miss_you_v4",
+                "overlay_id": "caption:love_miss_you",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4198,7 +3991,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_doi_roi_v4",
+                "overlay_id": "caption:love_doi_roi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4218,7 +4011,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_dang_ban_tuong_tu_v4",
+                "overlay_id": "caption:love_dang_ban_tuong_tu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4238,7 +4031,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_rep_tin_nhan_v4",
+                "overlay_id": "caption:love_rep_tin_nhan",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4258,7 +4051,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_mo_hon_tam_hien_v4",
+                "overlay_id": "caption:love_mo_hon_tam_hien",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4278,7 +4071,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_muon_duoc_om_v4",
+                "overlay_id": "caption:love_muon_duoc_om",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4298,7 +4091,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_hoi_bi_nho_v4",
+                "overlay_id": "caption:love_hoi_bi_nho",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4318,7 +4111,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_dang_ghen_v4",
+                "overlay_id": "caption:love_dang_ghen",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4338,19 +4131,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:love_ngu_ngon_mo_em_v4",
+                "overlay_id": "caption:love_ngu_ngon_mo_em",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#0F2027",
                             "#2C5364"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_galaxy_night_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🌌",
@@ -4358,7 +4146,7 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Ngủ ngon giấc mơ có em",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             }
@@ -4368,7 +4156,7 @@ if (true) {
         "section": "Wordsmith 📖",
         "items": [
             {
-                "overlay_id": "caption:ws_yeuu_emm_v4",
+                "overlay_id": "caption:ws_yeuu_emm",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4388,7 +4176,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_yeuu_anhh_v4",
+                "overlay_id": "caption:ws_yeuu_anhh",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4408,19 +4196,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_hoi_chieu_troi_mua_v4",
+                "overlay_id": "caption:ws_hoi_chieu_troi_mua",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#3A7BD5",
                             "#3A6073"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🌧️",
@@ -4428,12 +4211,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Hồi chiều trời mưa",
-                    "text_color": "#A9DEF9",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ws_con_vien_la_lan_v4",
+                "overlay_id": "caption:ws_con_vien_la_lan",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4453,7 +4236,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_aiiii_hoiiii_v4",
+                "overlay_id": "caption:ws_aiiii_hoiiii",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4473,7 +4256,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_tai_ong_de_ngoai_dau_v4",
+                "overlay_id": "caption:ws_tai_ong_de_ngoai_dau",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4493,7 +4276,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_chan_bo_may_di_v4",
+                "overlay_id": "caption:ws_chan_bo_may_di",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4513,7 +4296,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_oach_xa_lach_v4",
+                "overlay_id": "caption:ws_oach_xa_lach",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4533,7 +4316,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_e_he_v4",
+                "overlay_id": "caption:ws_e_he",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4553,7 +4336,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_ua_alo_v4",
+                "overlay_id": "caption:ws_ua_alo",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4573,7 +4356,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_may_chu_la_du_du_v4",
+                "overlay_id": "caption:ws_may_chu_la_du_du",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4593,7 +4376,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_lanh_thay_me_v4",
+                "overlay_id": "caption:ws_lanh_thay_me",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4613,7 +4396,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_day_la_cai_viec_v4",
+                "overlay_id": "caption:ws_day_la_cai_viec",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4633,7 +4416,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_dep_trai_an_phim_2_v4",
+                "overlay_id": "caption:ws_dep_trai_an_phim_2",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4653,7 +4436,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_nho_anh_ch_v4",
+                "overlay_id": "caption:ws_nho_anh_ch",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4673,19 +4456,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_bien_oi_huuuuuu_v4",
+                "overlay_id": "caption:ws_bien_oi_huuuuuu",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#2193B0",
                             "#6DD5ED"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_ocean_wave_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🌊",
@@ -4693,12 +4471,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Biển ơi húuuuuuu",
-                    "text_color": "#90E0EF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ws_yeu_me_v4",
+                "overlay_id": "caption:ws_yeu_me",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4718,7 +4496,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_nho_ngy_v4",
+                "overlay_id": "caption:ws_nho_ngy",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4738,7 +4516,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_oan_ta_la_van_v4",
+                "overlay_id": "caption:ws_oan_ta_la_van",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4758,7 +4536,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_kha_nang_cao_v4",
+                "overlay_id": "caption:ws_kha_nang_cao",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4778,7 +4556,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_o_qua_kieu_v4",
+                "overlay_id": "caption:ws_o_qua_kieu",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4798,7 +4576,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_lanh_nho_ai_v4",
+                "overlay_id": "caption:ws_lanh_nho_ai",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4818,7 +4596,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_dung_nhang_nhit_v4",
+                "overlay_id": "caption:ws_dung_nhang_nhit",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4838,19 +4616,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_hom_nay_toi_buon_v4",
+                "overlay_id": "caption:ws_hom_nay_toi_buon",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#2C3E50",
                             "#000000"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_rain_window_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🥀",
@@ -4858,12 +4631,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "hôm nay tôi buồn",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ws_gap_nhau_cai_nhi_v4",
+                "overlay_id": "caption:ws_gap_nhau_cai_nhi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4883,7 +4656,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_ank_iu_eim_v4",
+                "overlay_id": "caption:ws_ank_iu_eim",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4903,7 +4676,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_mong_ton_hoa_sen_v4",
+                "overlay_id": "caption:ws_mong_ton_hoa_sen",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4923,7 +4696,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_dam_nhau_khong_v4",
+                "overlay_id": "caption:ws_dam_nhau_khong",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4943,19 +4716,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_sieu_cap_ba_khi_v4",
+                "overlay_id": "caption:ws_sieu_cap_ba_khi",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#FF8008",
                             "#FFC837"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🐉",
@@ -4963,12 +4731,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "siêu cấp bá khí",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ws_du_an_ma_v4",
+                "overlay_id": "caption:ws_du_an_ma",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -4988,19 +4756,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_doc_so_tai_khoan_v4",
+                "overlay_id": "caption:ws_doc_so_tai_khoan",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#11998E",
                             "#38EF7D"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_money_gold_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "💳",
@@ -5008,12 +4771,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "đọc số tài khoản",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ws_ai_so_thi_di_ve_v4",
+                "overlay_id": "caption:ws_ai_so_thi_di_ve",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5033,7 +4796,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_con_cai_nit_v4",
+                "overlay_id": "caption:ws_con_cai_nit",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5053,19 +4816,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_canh_bao_co_hat_v4",
+                "overlay_id": "caption:ws_canh_bao_co_hat",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#FF512F",
                             "#DD2476"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_lofi_music_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🎤",
@@ -5073,12 +4831,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "cảnh báo có hát",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ws_than_chua_ma_don_v4",
+                "overlay_id": "caption:ws_than_chua_ma_don",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5098,7 +4856,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_ai_muon_v4",
+                "overlay_id": "caption:ws_ai_muon",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5118,7 +4876,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_hay_ra_de_qua_a_v4",
+                "overlay_id": "caption:ws_hay_ra_de_qua_a",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5138,19 +4896,14 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_giam_suc_manh_v4",
+                "overlay_id": "caption:ws_giam_suc_manh",
                 "source": "remote",
                 "caption": {
                     "background": {
                         "colors": [
                             "#00B4DB",
                             "#0083B0"
-                        ],
-                        "image": {
-                            "type": "image",
-                            "data": "https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/images/bg_gaming_neon_v4.png",
-                            "source": "url"
-                        }
+                        ]
                     },
                     "icon": {
                         "data": "🎮",
@@ -5158,12 +4911,12 @@ if (true) {
                     },
                     "max_lines": 1,
                     "text": "Giảm sức mạnh con tướng này",
-                    "text_color": "#FFFFFF",
+                    "text_color": "#FFFFFFE6",
                     "type": "static_content"
                 }
             },
             {
-                "overlay_id": "caption:ws_mac_co_qua_hai_oi_v4",
+                "overlay_id": "caption:ws_mac_co_qua_hai_oi",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5183,7 +4936,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_minh_la_lop_v4",
+                "overlay_id": "caption:ws_minh_la_lop",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5203,7 +4956,7 @@ if (true) {
                 }
             },
             {
-                "overlay_id": "caption:ws_dep_trai_co_gi_sai_v4",
+                "overlay_id": "caption:ws_dep_trai_co_gi_sai",
                 "source": "remote",
                 "caption": {
                     "background": {
@@ -5224,21 +4977,12 @@ if (true) {
             }
         ]
     }
-])
+]
+)
     });
-
-    // Bảo toàn 100% các khóa động liên quan đến Looks / Lenses / Snap Kit từ server
-    if (serverEntriesOriginal) {
-        for (var k in serverEntriesOriginal) {
-            if (/looks|lenses|camera_kit|ai_looks|snap/i.test(k) && !obj.entries[k]) {
-                obj.entries[k] = serverEntriesOriginal[k];
-            }
-        }
-    }
 
     // Ép Firebase SDK trên iOS nhận diện bản cập nhật cấu hình mới ngay lập tức
     obj.state = "UPDATE";
-    obj.etag = "v7_" + Date.now();
 }
 
 var fbHeaders = {};

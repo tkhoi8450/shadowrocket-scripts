@@ -51,15 +51,6 @@ function makeEnt(productId) {
 obj.subscriber = obj.subscriber || {};
 obj.subscriber.subscriptions = obj.subscriber.subscriptions || {};
 obj.subscriber.entitlements = obj.subscriber.entitlements || {};
-obj.subscriber.non_subscriptions = obj.subscriber.non_subscriptions || {};
-obj.subscriber.other_purchases = obj.subscriber.other_purchases || {};
-
-// Đảm bảo không có subscription nào bị gắn is_sandbox: true khiến tính năng Filter/Looks từ chối tải
-for (var subKey in obj.subscriber.subscriptions) {
-    if (obj.subscriber.subscriptions[subKey] && typeof obj.subscriber.subscriptions[subKey] === "object") {
-        obj.subscriber.subscriptions[subKey].is_sandbox = false;
-    }
-}
 
 // TRƯỜNG HỢP 1: Locket
 if (ua.toLowerCase().includes("locket")) {
@@ -77,37 +68,6 @@ if (ua.toLowerCase().includes("locket")) {
     var pack20Product = "com.locket.Locket.FilterPack_20Photos_500";
     obj.subscriber.subscriptions[pack20Product] = makeSub(pack20Product, 0.0, "USD");
     obj.subscriber.entitlements["effect_pack_20"] = makeEnt(pack20Product);
-
-    // Mở rộng toàn diện các Entitlements phòng vệ (Theme, Looks, Filters, Frames)
-    obj.subscriber.entitlements["camera_theme"] = makeEnt(goldProduct);
-    obj.subscriber.entitlements["looks"] = makeEnt(goldProduct);
-    obj.subscriber.entitlements["ai_looks"] = makeEnt(goldProduct);
-    obj.subscriber.entitlements["filters"] = makeEnt(goldProduct);
-    obj.subscriber.entitlements["filter"] = makeEnt(goldProduct);
-    obj.subscriber.entitlements["custom_filters"] = makeEnt(goldProduct);
-    obj.subscriber.entitlements["camera_filters"] = makeEnt(goldProduct);
-    obj.subscriber.entitlements["FilterPack"] = makeEnt(pack20Product);
-    obj.subscriber.entitlements["filter_pack"] = makeEnt(pack20Product);
-    obj.subscriber.entitlements["effects"] = makeEnt(pack20Product);
-    obj.subscriber.entitlements["effect_pack"] = makeEnt(pack20Product);
-
-    // Bổ sung non_subscriptions (giao dịch mua đứt gói ảnh/filter) để thỏa mãn kiểm tra số dư lượt dùng
-    function makeNonSub(productId, count) {
-        var arr = [];
-        for (var i = 0; i < (count || 5); i++) {
-            arr.push({
-                id: "2000001108724" + (100 + i),
-                is_sandbox: false,
-                original_purchase_date: PAST,
-                purchase_date: PAST,
-                store: "app_store",
-                store_transaction_id: "2000001108724" + (100 + i)
-            });
-        }
-        return arr;
-    }
-    obj.subscriber.non_subscriptions[pack10Product] = makeNonSub(pack10Product, 10);
-    obj.subscriber.non_subscriptions[pack20Product] = makeNonSub(pack20Product, 10);
 } else {
     // TRƯỜNG HỢP 2: Các app RevenueCat khác (VSCO, Photomator, Spark, Mojo, v.v.)
     const mapping = {
