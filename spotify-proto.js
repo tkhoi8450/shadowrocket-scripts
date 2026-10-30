@@ -40,50 +40,39 @@ if(resStatus !== 200) {
 }
 
 function processMapObj(accountAttributesMapObj){
-    // accountAttributesMapObj['is-eligible-premium-unboxing'] = {boolValue : true};
-    // accountAttributesMapObj['feature-set-id-masked'] = {stringValue : 'dd6ef0c22c'};
+    // Xóa triệt để các thuộc tính DRM gây lỗi 5s nhảy bài trên iOS
+    delete accountAttributesMapObj['catalogue'];
+    delete accountAttributesMapObj['audio-quality'];
+    delete accountAttributesMapObj['high-bitrate'];
+    delete accountAttributesMapObj['filter-explicit-content'];
+    delete accountAttributesMapObj['player-license'];
+
+    // Kích hoạt tính năng Chặn quảng cáo, Tua bài, Chuyển/Lùi bài không giới hạn
+    accountAttributesMapObj['ads'] = {boolValue : false};
+    accountAttributesMapObj['seeking'] = {boolValue : true};
+    accountAttributesMapObj['on-demand'] = {boolValue : true};
+    accountAttributesMapObj['shuffle'] = {boolValue : false};
+    accountAttributesMapObj['pick-and-shuffle'] = {boolValue : false};
+    accountAttributesMapObj['skip-limit'] = {boolValue : false};
+    accountAttributesMapObj['unrestricted'] = {boolValue : true};
     accountAttributesMapObj['smart-shuffle'] = {stringValue : 'AVAILABLE'};
-    accountAttributesMapObj['is-euterpe'] = {boolValue : true};
-    accountAttributesMapObj['has-audiobooks-subscription'] = {boolValue : true};
+    accountAttributesMapObj['shuffle-algorithm'] = {stringValue : 'RANDOM'};
+    accountAttributesMapObj['lyrics-offline'] = {boolValue : true};
+    accountAttributesMapObj['offline-backup'] = {stringValue : 'UNRESTRICTED'};
+    accountAttributesMapObj['nft-disabled'] = {stringValue : '1'};
+    accountAttributesMapObj['social-session'] = {boolValue : true};
+    accountAttributesMapObj['jam-social-session'] = {stringValue : 'EXPANDED'};
+    accountAttributesMapObj['your-library-tags'] = {boolValue : true};
+    accountAttributesMapObj['name'] = {stringValue : 'Spotify Premium'};
     accountAttributesMapObj['type'] = {stringValue : 'premium'};
-    accountAttributesMapObj['payments-initial-campaign'] = {stringValue : 'prepaid'};
 
     const expireDate = new Date();
     expireDate.setMonth(expireDate.getMonth() + 1);
     const endDateStr = expireDate.toISOString().split('.')[0] + "Z";
     accountAttributesMapObj['subscription-enddate'] = {stringValue : endDateStr};
-    accountAttributesMapObj['social-session-free-tier'] = {boolValue : false};
-    accountAttributesMapObj['can_use_superbird'] = {boolValue : true};
-    accountAttributesMapObj['jam-social-session'] = {stringValue : 'EXPANDED'};
-    accountAttributesMapObj['offline'] = {boolValue : true};
-    accountAttributesMapObj['audio-quality'] = {stringValue : '1'};
-    accountAttributesMapObj['shuffle-algorithm'] = {stringValue : 'RANDOM'};
-    accountAttributesMapObj['is-thalia'] = {boolValue : true};
-    accountAttributesMapObj['shuffle'] = {boolValue : false};
-    accountAttributesMapObj['is-pigeon'] = {boolValue : true};
-    // Tab quảng cáo về tư cách thành viên ở góc dưới bên phải của trang chủ.
-    accountAttributesMapObj['nft-disabled'] = {stringValue : '1'};
-    accountAttributesMapObj['libspotify'] = {boolValue : true};
-    accountAttributesMapObj['high-bitrate'] = {boolValue : true};
-    accountAttributesMapObj['unrestricted'] = {boolValue : true};
-    accountAttributesMapObj['catalogue'] = {stringValue : 'premium'};
-    accountAttributesMapObj['your-library-tags'] = {boolValue : true};
-    accountAttributesMapObj['ads'] = {boolValue : false};
-    accountAttributesMapObj['on-demand'] = {boolValue : true};
-    accountAttributesMapObj['name'] = {stringValue : 'Spotify Premium'};
-    accountAttributesMapObj['loudness-levels'] = {stringValue : '1:-5.0,0.0,3.0:-2.0'};
     accountAttributesMapObj['product-expiry'] = {stringValue : endDateStr};
-    accountAttributesMapObj['social-session'] = {boolValue : true};
-    accountAttributesMapObj['pick-and-shuffle'] = {boolValue : false};
-    accountAttributesMapObj['offline-backup'] = {stringValue : 'UNRESTRICTED'};
-    accountAttributesMapObj['lyrics-offline'] = {boolValue : true};
-    // accountAttributesMapObj['financial-product'] = {stringValue : 'pr:premium,tc:0,rt:v2_US_default_epay-digital-10-USD-1m_10.0_USD_default'};
-    accountAttributesMapObj['financial-product'] = {stringValue : 'pr:premium,tc:0'};
-    accountAttributesMapObj['streaming-rules'] = {stringValue : ''};
-    accountAttributesMapObj['mixing-tools'] = {stringValue : 'EDIT'};
-    accountAttributesMapObj['mobile'] = {boolValue : true};
-    accountAttributesMapObj['player-license'] = {stringValue : 'premium'};
-    // Xác định xem `customize` có hiệu lực hay không; một số người dùng không có thuộc tính này.
+
+    // Đảm bảo customize có hiệu lực trên client
     accountAttributesMapObj['com.spotify.madprops.use.ucs.product.state'] = {boolValue : true};
     accountAttributesMapObj['com.spotify.madprops.delivered.by.ucs'] = {boolValue : true};
 }
