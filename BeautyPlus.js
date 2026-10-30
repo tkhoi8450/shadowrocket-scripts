@@ -1,4 +1,4 @@
-﻿*/
+/* BeautyPlus VIP */
 var objc = JSON.parse($response.body);
 
     objc = {

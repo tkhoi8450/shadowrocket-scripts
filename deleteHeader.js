@@ -1,12 +1,12 @@
-// ========================================== //
+﻿// ========================================== //
 // Shadowrocket Request Cache Cleaner (Anti-304 & Anti-Drop)
 // Hỗ trợ: RevenueCat (api.revenuecat.com) & Firebase Remote Config (firebaseremoteconfig.googleapis.com)
-// Tác giả: tkhoi8450 (v9)
+// Tác giả: tkhoi8450 (v10)
 // ========================================== //
 
 var modifiedHeaders = Object.assign({}, ($request && $request.headers) ? $request.headers : {});
 
-// 1. Xóa sạch mọi Header cache chống phản hồi 304 Not Modified (Case-insensitive)
+// 1. Xóa toàn bộ các header cache chống phản hồi 304 Not Modified
 var headersToDelete = [
     "x-revenuecat-etag",
     "if-none-match",
@@ -24,42 +24,39 @@ for (var k in modifiedHeaders) {
     }
 }
 
-// 2. Xóa các trường ETag / Digest / Version cũ trong POST Body của Firebase Remote Config SDK
-var modifiedBody = undefined;
-if ($request && $request.body) {
-    if (typeof $request.body === "string" && $request.body.length > 0) {
-        try {
-            var bodyObj = JSON.parse($request.body);
-            var isFirebase = false;
-            var cacheFields = [
-                "last_known_etag",
-                "lastKnownEtag",
-                "etag",
-                "digest",
-                "template_version_number",
-                "templateVersionNumber"
-            ];
-            for (var i = 0; i < cacheFields.length; i++) {
-                var field = cacheFields[i];
-                if (field in bodyObj) {
-                    delete bodyObj[field];
-                    isFirebase = true;
-                }
-            }
-            if (isFirebase) {
-                modifiedBody = JSON.stringify(bodyObj);
-            } else {
-                modifiedBody = $request.body;
-            }
-        } catch (e) {
-            modifiedBody = $request.body;
-        }
-    } else {
-        modifiedBody = $request.body;
-    }
-}
+// Xóa tường minh các biến thể chữ hoa/thường phổ biến
+delete modifiedHeaders["x-revenuecat-etag"];
+delete modifiedHeaders["X-RevenueCat-ETag"];
+delete modifiedHeaders["if-none-match"];
+delete modifiedHeaders["If-None-Match"];
+delete modifiedHeaders["etag"];
+delete modifiedHeaders["ETag"];
+delete modifiedHeaders["if-modified-since"];
+delete modifiedHeaders["If-Modified-Since"];
+delete modifiedHeaders["x-goog-if-none-match"];
 
-if (modifiedBody !== undefined) {
+// 2. Nếu URL chứa firebaseremoteconfig.googleapis.com và có $request.body
+var url = ($request && $request.url) ? $request.url : "";
+var isFirebase = (url.indexOf("firebaseremoteconfig.googleapis.com") !== -1) ||
+                 (modifiedHeaders["Host"] && modifiedHeaders["Host"].indexOf("firebaseremoteconfig.googleapis.com") !== -1) ||
+                 (modifiedHeaders["host"] && modifiedHeaders["host"].indexOf("firebaseremoteconfig.googleapis.com") !== -1);
+
+if (isFirebase && $request && $request.body) {
+    var modifiedBody = $request.body;
+    try {
+        var bodyObj = typeof $request.body === "string" ? JSON.parse($request.body) : $request.body;
+        if (bodyObj && typeof bodyObj === "object") {
+            delete bodyObj["last_known_etag"];
+            delete bodyObj["lastKnownEtag"];
+            delete bodyObj["etag"];
+            delete bodyObj["digest"];
+            delete bodyObj["template_version_number"];
+            delete bodyObj["templateVersionNumber"];
+            modifiedBody = JSON.stringify(bodyObj);
+        }
+    } catch (e) {
+        // Giữ nguyên body nếu không parse được
+    }
     $done({
         headers: modifiedHeaders,
         body: modifiedBody

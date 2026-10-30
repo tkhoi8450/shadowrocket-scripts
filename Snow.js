@@ -8,6 +8,7 @@ const list = {
 
 for (const key of Object.keys(list)) {
     if (new RegExp(`^${key}`, "i").test(ua)) {
+        var objc = {
         "products": [
             {
                 "managed": true,
@@ -29,8 +30,9 @@ for (const key of Object.keys(list)) {
         "activated": true
         };
         console.log("Hoạt động đã thành công 🎉🎉🎉\nKênh chia sẻ tienich: https://t.me/tienich");
+        $done({ body: JSON.stringify(objc) });
         break;
     }
 }
-
-
+$done({});
+    

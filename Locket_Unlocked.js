@@ -4997,6 +4997,10 @@ try {
     delete fbHeaders["etag"];
 } catch (e) {}
 
+// Đảm bảo tuyệt đối obj luôn có state = "UPDATE" và templateVersion = "999999999" trước khi serialize
+obj.state = "UPDATE";
+obj.templateVersion = "999999999";
+
 var doneObj = {
     headers: fbHeaders,
     body: JSON.stringify(obj)

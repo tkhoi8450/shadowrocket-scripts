@@ -331,6 +331,7 @@ if (_0x3b9d) {
 var ua = $request.headers[_0x31b760(381, "HT[1")] || $request[_0x31b760(383, "3PCZ")]["user-agent"];
 var obj = JSON[_0x31b760(367, "CQUZ")]($response.body);
 obj[_0x31b760(375, "fyu&")] = _0x31b760(399, "L*8u");
+var duyvinh_sub = {
   is_sandbox: false,
   ownership_type: _0x31b760(377, "JPYr"),
   billing_issues_detected_at: null,
