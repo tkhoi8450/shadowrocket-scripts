@@ -1,22 +1,23 @@
 #!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
-#!desc=Bản nâng cấp toàn diện cho sinh viên HCMUTE: Locket Gold 60s + Nút Mic + Chú thích HCMUTE/GenZ/Wordsmith + YouTube Maasea Mới Nhất (Sạch QC, PiP, Phát nền) + Spotify + SoundCloud + 11 App VIP
+#!desc=Bản nâng cấp toàn diện cho sinh viên HCMUTE: Locket Gold 60s + Nút Mic + Chú thích HCMUTE/GenZ/Wordsmith + YouTube Maasea Mới Nhất (Sạch QC, PiP, Phát nền) + SoundCloud + 11 App VIP
 #!author=tkhoi8450 (HCMUTE)
 #!homepage=https://github.com/tkhoi8450/shadowrocket-scripts
 #!howtouse=Shadowrocket
 #!category=Ultimate All-In-One
 
 [Rule]
-# 1. Chặn UDP 5 domain MITM để ép dùng TCP HTTPS ổn định trên 4G
+# 1. Chặn UDP các domain MITM để ép dùng TCP HTTPS ổn định trên 4G
 AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT-NO-DROP
+AND,((DOMAIN-SUFFIX,youtube.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN-SUFFIX,googleapis.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN-SUFFIX,revenuecat.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((DOMAIN-SUFFIX,rc-backup.com),(PROTOCOL,UDP)),REJECT-NO-DROP
 
 [URL Rewrite]
 ^https:\/\/api\.baomoi\.com\/a465 _ reject-200
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad _ reject-200
-^https?:\/\/[\w-]+\.googlevideo\.com\/(initplayback|videoplayback).+&ctier _ reject-200
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?&oad _ reject-200
+^https?:\/\/[\w-]+\.googlevideo\.com\/.+&(ctier|oad) _ reject-200
 
 [Header Rewrite]
 # 1. Xóa ETag và If-None-Match của RevenueCat
@@ -33,8 +34,6 @@ http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/loc
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-modified-since
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-Modified-Since
 
-# 3. Xóa If-None-Match cho Spotify
-# http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Script]
 # ==========================================
@@ -47,14 +46,13 @@ locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleap
 # ==========================================
 # 2. YouTube & YouTube Music Enhance (Lõi Maasea mới nhất - Chặn sạch QC, PiP, Phát nền, Phụ đề Tiếng Việt)
 # ==========================================
-youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch)(\?.*)?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js?v=11,argument="{\"lyricLang\":\"vi\",\"captionLang\":\"vi\",\"blockUpload\":true,\"blockImmersive\":true,\"blockShorts\":false,\"debug\":false}"
+youtube.request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\?,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js?v=12
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch)\?,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js?v=12
 
 # ==========================================
-# 3. SoundCloud Go+ & Spotify Premium
+# 3. SoundCloud Go+
 # ==========================================
 SoundCloudGo+=type=http-response,pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios,requires-body=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/SoundCloudGoPlus.js
-# spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/spotify-json.js
-# spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/spotify-proto.js,script-update-interval=0
 
 # ==========================================
 # 4. Mở khóa 11 App Chỉnh Ảnh & Tiện Ích VIP (Đã gộp vào Locket_Gold.js & loại bỏ dòng VSCO gây nghẽn)
