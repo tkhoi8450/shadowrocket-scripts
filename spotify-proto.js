@@ -40,39 +40,32 @@ if(resStatus !== 200) {
 }
 
 function processMapObj(accountAttributesMapObj){
-    // Xóa triệt để các thuộc tính DRM gây lỗi 5s nhảy bài trên iOS
+    // 1. XÓA TRIỆT ĐỂ CÁC THUỘC TÍNH DRM & BẢN QUYỀN TRẢ PHÍ (Tránh Spotify đòi khóa PlayPlay DRM gây lỗi 5s nhảy bài trên iOS)
     delete accountAttributesMapObj['catalogue'];
     delete accountAttributesMapObj['audio-quality'];
     delete accountAttributesMapObj['high-bitrate'];
-    delete accountAttributesMapObj['filter-explicit-content'];
     delete accountAttributesMapObj['player-license'];
+    delete accountAttributesMapObj['financial-product'];
+    delete accountAttributesMapObj['streaming-rules'];
+    delete accountAttributesMapObj['filter-explicit-content'];
+    delete accountAttributesMapObj['type'];
 
-    // Kích hoạt tính năng Chặn quảng cáo, Tua bài, Chuyển/Lùi bài không giới hạn
-    accountAttributesMapObj['ads'] = {boolValue : false};
-    accountAttributesMapObj['seeking'] = {boolValue : true};
-    accountAttributesMapObj['on-demand'] = {boolValue : true};
+    // 2. KÍCH HOẠT TÍNH NĂNG MỞ KHÓA GIAO DIỆN & ĐIỀU KHIỂN PHÁT NHẠC
+    accountAttributesMapObj['smart-shuffle'] = {stringValue : 'AVAILABLE'};
     accountAttributesMapObj['shuffle'] = {boolValue : false};
     accountAttributesMapObj['pick-and-shuffle'] = {boolValue : false};
-    accountAttributesMapObj['skip-limit'] = {boolValue : false};
+    accountAttributesMapObj['on-demand'] = {boolValue : true};
+    accountAttributesMapObj['seeking'] = {boolValue : true};
+    accountAttributesMapObj['pause'] = {boolValue : true};
     accountAttributesMapObj['unrestricted'] = {boolValue : true};
-    accountAttributesMapObj['smart-shuffle'] = {stringValue : 'AVAILABLE'};
-    accountAttributesMapObj['shuffle-algorithm'] = {stringValue : 'RANDOM'};
-    accountAttributesMapObj['lyrics-offline'] = {boolValue : true};
-    accountAttributesMapObj['offline-backup'] = {stringValue : 'UNRESTRICTED'};
+    accountAttributesMapObj['ads'] = {boolValue : false};
     accountAttributesMapObj['nft-disabled'] = {stringValue : '1'};
-    accountAttributesMapObj['social-session'] = {boolValue : true};
-    accountAttributesMapObj['jam-social-session'] = {stringValue : 'EXPANDED'};
-    accountAttributesMapObj['your-library-tags'] = {boolValue : true};
-    accountAttributesMapObj['name'] = {stringValue : 'Spotify Premium'};
-    accountAttributesMapObj['type'] = {stringValue : 'premium'};
+    accountAttributesMapObj['lyrics-offline'] = {boolValue : true};
+    accountAttributesMapObj['offline'] = {boolValue : true};
+    accountAttributesMapObj['offline-backup'] = {stringValue : 'UNRESTRICTED'};
+    accountAttributesMapObj['mobile'] = {boolValue : true};
 
-    const expireDate = new Date();
-    expireDate.setMonth(expireDate.getMonth() + 1);
-    const endDateStr = expireDate.toISOString().split('.')[0] + "Z";
-    accountAttributesMapObj['subscription-enddate'] = {stringValue : endDateStr};
-    accountAttributesMapObj['product-expiry'] = {stringValue : endDateStr};
-
-    // Đảm bảo customize có hiệu lực trên client
+    // 3. ĐẢM BẢO CLIENT ÁP DỤNG CẤU HÌNH UCS
     accountAttributesMapObj['com.spotify.madprops.use.ucs.product.state'] = {boolValue : true};
     accountAttributesMapObj['com.spotify.madprops.delivered.by.ucs'] = {boolValue : true};
 }
