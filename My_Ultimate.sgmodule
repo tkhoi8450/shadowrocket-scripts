@@ -1,12 +1,11 @@
 #!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
-#!desc=Bản nâng cấp toàn diện cho sinh viên HCMUTE: Locket Gold 60s + Nút Mic + Chú thích HCMUTE/GenZ/Wordsmith + YouTube Maasea Mới Nhất (Sạch QC, PiP, Phát nền) + SoundCloud + 11 App VIP
+#!desc=Bản nâng cấp v18 Siêu Gọn Nhẹ: Locket Gold 60s + Nút Mic + Chú thích HCMUTE/GenZ/Wordsmith + YouTube Maasea Siêu Tốc (Sạch QC, PiP, Phát nền) + SoundCloud Go+
 #!author=tkhoi8450 (HCMUTE)
 #!homepage=https://github.com/tkhoi8450/shadowrocket-scripts
 #!howtouse=Shadowrocket
 #!category=Ultimate All-In-One
 
 [Rule]
-# 1. Chặn UDP các domain MITM để ép dùng TCP HTTPS ổn định trên 4G
 AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-SUFFIX,youtube.com),(PROTOCOL,UDP)),REJECT
@@ -15,7 +14,6 @@ AND,((DOMAIN-SUFFIX,revenuecat.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-SUFFIX,rc-backup.com),(PROTOCOL,UDP)),REJECT
 
 [URL Rewrite]
-^https:\/\/api\.baomoi\.com\/a465 _ reject-200
 ^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?&oad _ reject-200
 
 [Header Rewrite]
@@ -33,54 +31,24 @@ http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/loc
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-modified-since
 http-request ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-Modified-Since
 
-# 3. Xóa If-None-Match và ETag của YouTube (Tránh cache trang chủ chứa quảng cáo)
-http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/.+ header-del if-none-match
-http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/.+ header-del If-None-Match
-http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/.+ header-del etag
-http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/.+ header-del ETag
-
 [Script]
 # ==========================================
 # 1. Locket Gold + Quay 60s + Mic + Chú Thích HCMUTE (Kho GitHub tkhoi8450)
 # ==========================================
-deleteHeader = type=http-request,pattern=^https?:\/\/((api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers)|firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js?v=10,requires-body=true,max-size=-1,timeout=60,script-update-interval=-1
-revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js?v=10,requires-body=true,max-size=-1,timeout=60,script-update-interval=-1
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=10,requires-body=true,max-size=-1,timeout=60,script-update-interval=-1
+deleteHeader = type=http-request,pattern=^https?:\/\/((api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers)|firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js?v=10,requires-body=true,max-size=-1,timeout=60
+revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js?v=10,requires-body=true,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=10,requires-body=true,max-size=-1,timeout=60
 
 # ==========================================
-# 2. YouTube & YouTube Music Enhance (Lõi Maasea mới nhất - Chặn sạch QC, PiP, Phát nền, Phụ đề Tiếng Việt)
+# 2. YouTube & YouTube Music Enhance (Lõi Maasea - Sạch QC, PiP, Phát nền)
 # ==========================================
-youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js
-youtube.request.init = type=http-request,pattern=^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js
-youtube.request.log_event = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)(\?.*)?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.response.js?v=18
+youtube.request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)(\?.*)?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/youtube.request.js?v=18
 
 # ==========================================
 # 3. SoundCloud Go+
 # ==========================================
-SoundCloudGo+=type=http-response,pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios,requires-body=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/SoundCloudGoPlus.js
-
-# ==========================================
-# 4. Mở khóa 11 App Chỉnh Ảnh & Tiện Ích VIP (Đã gộp vào Locket_Gold.js & loại bỏ dòng VSCO gây nghẽn)
-# ==========================================
-AlightMotion = type=http-response,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/AlightMotion.js,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,max-size=131072,requires-body=true,timeout=10
-PicsArt = type=http-request,pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/PicsArt.js,requires-body=true,timeout=60
-PicsArtStorages = type=http-request,pattern=^https:\/\/api\.picsart\.com\/gw-v2\/cloud-storage\/v1\/me\/storages,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/PicsArtStorages.js,requires-body=true,timeout=60
-Wink = type=http-response,pattern=^https:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json,requires-body=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/WinkVipCrack.js
-Truecaller = type=http-response,pattern=^https:\/\/premium-[^.]+\.truecaller\.com\/v\d+\/(subscriptions\/status|products\/apple)(\?.*)?$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/TrueCaller.js
-Lightroom = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/accounts,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/lightroom.js,script-update-interval=-1
-Kinemaster = type=http-response,pattern=^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Kinemaster.js
-Camscanner = type=http-response,pattern=^https:\/\/(api|api-cs.*)\.intsig\.net\/purchase\/cs\/query_property\?,requires-body=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/camScanner.js
-BeautyPlus = type=http-response,pattern=^https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/BeautyPlus.js,requires-body=true,max-size=-1,timeout=60
-Snow = type=http-response,pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Snow.js,requires-body=true,max-size=-1,timeout=60
-Meitu = type=http-response,pattern=^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/,requires-body=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/MeiTuXiuXiu.js
-iTunes = type=http-response,pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/iTunes.js,requires-body=true,max-size=-1,timeout=60
-
-# ==========================================
-# 5. Sub-Store
-# ==========================================
-Sub-Store Core=type=http-request,pattern=^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))),script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js,requires-body=true,timeout=120
-Sub-Store Simple=type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js,requires-body=true
-Sub-Store Sync=type=cron,cronexp=0 0 * * *,wake-system=1,timeout=120,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js
+SoundCloudGo+ = type=http-response,pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios,requires-body=1,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/SoundCloudGoPlus.js?v=18
 
 [MITM]
-hostname = %APPEND% api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, youtubei.googleapis.com, *.googlevideo.com, sub.store, api-mobile.soundcloud.com, api.picsart.com, us-central1-alight-creative.cloudfunctions.net, api-sub.meitu.com, photos.adobe.io, ap*.intsig.net, api-account.kinemasters.com, api.mr.pixocial.com, newbeee-api.beautyplus.com, user-snow-api.snow.me, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, premium*.truecaller.com, buy.itunes.apple.com
+hostname = %APPEND% api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, youtubei.googleapis.com, *.googlevideo.com, api-mobile.soundcloud.com
