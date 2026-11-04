@@ -1,17 +1,30 @@
-#!name=Locket Gold HCMUTE Ultimate (tkhoi8450)
-#!desc=Chuyên biệt cho Locket Gold 60s + Mic + Chú thích HCMUTE v4 (Chạy song song hoàn hảo với CSA_Nobita.conf gốc, không gây lag YouTube/Spotify)
-#!author=tkhoi8450 (HCMUTE)
+#!name=My Ultimate Shadowrocket (HCMUTE Edition - tkhoi8450)
+#!desc=Tích hợp hoàn hảo: Locket Gold 60s/Mic/Chú thích HCMUTE + YouTube & Spotify & SoundCloud nguyên bản từ Nobita (Không QC, Không lag, Không nhảy bài)
+#!author=tkhoi8450 (HCMUTE) & DungHoang120401 (Nobita)
 #!homepage=https://github.com/tkhoi8450/shadowrocket-scripts
+#!howtouse=Shadowrocket
+#!category=Ultimate All-In-One
 
 [Rule]
 AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-SUFFIX,revenuecat.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-SUFFIX,rc-backup.com),(PROTOCOL,UDP)),REJECT
 
+[URL Rewrite]
+^https:\/\/api\.baomoi\.com\/a465 _ REJECT-200
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
+
 [Header Rewrite]
+# 1. RevenueCat
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del x-revenuecat-etag
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del X-RevenueCat-ETag
 http-request ^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$) header-del if-none-match
+
+# 2. Locket Firebase Remote Config (Chống 304)
 http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del if-none-match
 http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del If-None-Match
 http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del etag
@@ -20,10 +33,32 @@ http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del if
 http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del If-Modified-Since
 http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del x-goog-if-none-match
 
+# 3. Spotify
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
+
 [Script]
+# ==========================================
+# 1. Locket Gold + Quay 60s + Mic + Chú Thích HCMUTE (Kho GitHub tkhoi8450)
+# ==========================================
 deleteHeader = type=http-request,pattern=^https?:\/\/((api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts|subscribers)|firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/deleteHeader.js?v=20,requires-body=true,max-size=-1,timeout=60
 revenuecat = type=http-response,pattern=^https?:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/?(.*?)*$),script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Gold.js?v=20,requires-body=true,max-size=-1,timeout=60
 locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://raw.githubusercontent.com/tkhoi8450/shadowrocket-scripts/refs/heads/main/Locket_Unlocked.js?v=20,requires-body=true,max-size=-1,timeout=60
 
+# ==========================================
+# 2. YouTube Premium (Nobita CSA - Siêu mượt, không QC, PiP, Phát nền)
+# ==========================================
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine=jsc,script-path=https://raw.githubusercontent.com/DungHoang120401/Nobita/refs/heads/main/Scripts/youtube_response_preview.js,argument="{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"debug":false}"
+
+# ==========================================
+# 3. Spotify Premium (Nobita CSA - Phát hết bài, không dính DRM)
+# ==========================================
+spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+
+# ==========================================
+# 4. SoundCloud Go+ (Nobita CSA)
+# ==========================================
+SoundCloudGo+=type=http-response,pattern=https://api-mobile.soundcloud.com/configuration/ios,requires-body=1,script-path=https://raw.githubusercontent.com/DungHoang120401/Nobita/refs/heads/main/Scripts/SoundCloud.js
+
 [MITM]
-hostname = %APPEND% api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com
+hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com, spclient.wg.spotify.com, api-mobile.soundcloud.com, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com
